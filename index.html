@@ -193,6 +193,29 @@
       color: var(--charcoal);
     }
 
+    .lang-switcher {
+      display: flex;
+      gap: 8px;
+    }
+
+    .lang-btn {
+      background: none;
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 4px 8px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--charcoal-lt);
+      cursor: pointer;
+      transition: all var(--transition);
+    }
+
+    .lang-btn.active, .lang-btn:hover {
+      background: var(--sky);
+      color: var(--charcoal);
+      border-color: var(--sky-deep);
+    }
+
     .nav-toggle {
       display: none;
       flex-direction: column;
@@ -1691,15 +1714,20 @@
     <div class="nav-inner">
       <div class="nav-logo">JPO<span class="dot">.</span></div>
       <ul class="nav-links">
-        <li><a href="#hero">Home</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="#experience">Experience</a></li>
-        <li><a href="#deals">Deal Sheet</a></li>
-        <li><a href="#skills">Skills</a></li>
-        <li><a href="#education">Education</a></li>
-        <li><a href="#target-roles">Open To</a></li>
-        <li><a href="#contact">Contact</a></li>
+        <li><a href="#hero" data-i18n="nav_home">Home</a></li>
+        <li><a href="#about" data-i18n="nav_about">About</a></li>
+        <li><a href="#experience" data-i18n="nav_exp">Experience</a></li>
+        <li><a href="#deals" data-i18n="nav_deals">Deal Sheet</a></li>
+        <li><a href="#skills" data-i18n="nav_skills">Skills</a></li>
+        <li><a href="#education" data-i18n="nav_edu">Education</a></li>
+        <li><a href="#target-roles" data-i18n="nav_roles">Open To</a></li>
+        <li><a href="#contact" data-i18n="nav_contact">Contact</a></li>
       </ul>
+      <div class="lang-switcher">
+        <button class="lang-btn active" onclick="setLanguage('en')">EN</button>
+        <button class="lang-btn" onclick="setLanguage('pt')">PT</button>
+        <button class="lang-btn" onclick="setLanguage('es')">ES</button>
+      </div>
       <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
         <span></span><span></span><span></span>
       </button>
@@ -1710,9 +1738,9 @@
   <section class="hero" id="hero">
     <div class="hero-bg-grid"></div>
     <div class="hero-content">
-      <p class="hero-eyebrow">Credit Risk · Private Credit · MiCAR Authorization · Asset Management</p>
+      <p class="hero-eyebrow" data-i18n="hero_eyebrow">Credit Risk · Private Credit · MiCAR Authorization · Asset Management</p>
       <h1 class="hero-name">João Pedro<br><span class="accent">Oliveira</span></h1>
-      <p class="hero-tagline">
+      <p class="hero-tagline" data-i18n="hero_tagline">
         Bridging <em>supervisory-grade credit risk intelligence</em><br>
         with high-conviction <em>private credit underwriting</em> —<br>
         now extending the regulatory frontier into<br>
@@ -1721,24 +1749,24 @@
       <div class="hero-stats">
         <div class="stat-pill">
           <span class="stat-num">€282Bn+</span>
-          <span class="stat-label">Assets audited</span>
+          <span class="stat-label" data-i18n="hero_stat1">Assets audited</span>
         </div>
         <div class="stat-pill">
           <span class="stat-num">€172M+</span>
-          <span class="stat-label">Provisioning impact</span>
+          <span class="stat-label" data-i18n="hero_stat2">Provisioning impact</span>
         </div>
         <div class="stat-pill">
           <span class="stat-num">€368M</span>
-          <span class="stat-label">RWA corrections</span>
+          <span class="stat-label" data-i18n="hero_stat3">RWA corrections</span>
         </div>
         <div class="stat-pill">
           <span class="stat-num">16</span>
-          <span class="stat-label">On-site inspections</span>
+          <span class="stat-label" data-i18n="hero_stat4">On-site inspections</span>
         </div>
       </div>
       <div class="hero-cta">
-        <a href="#experience" class="btn-primary">View Experience</a>
-        <a href="#deals" class="btn-ghost">Deal Sheet</a>
+        <a href="#experience" class="btn-primary" data-i18n="hero_btn_exp">View Experience</a>
+        <a href="#deals" class="btn-ghost" data-i18n="hero_btn_deals">Deal Sheet</a>
         <a href="https://raw.githubusercontent.com/jpoaooliveirabusiness-home/mydocs/main/CV_JoaoPedroOliveira.pdf"
           target="_blank" rel="noopener noreferrer" class="btn-ghost" download>
           <svg style="margin-right:8px; vertical-align:middle;" xmlns="http://www.w3.org/2000/svg" width="16"
@@ -1748,7 +1776,15 @@
             <polyline points="7 10 12 15 17 10" />
             <line x1="12" y1="15" x2="12" y2="3" />
           </svg>
-          Download CV
+          <span data-i18n="hero_btn_cv">Download CV</span>
+        </a>
+        <a href="mailto:jpoao.oliveira@gmail.com" class="btn-ghost">
+          <svg style="margin-right:8px; vertical-align:middle;" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+            <polyline points="22,6 12,13 2,6" />
+          </svg>
+          <span data-i18n="hero_btn_email">Email Me</span>
         </a>
       </div>
     </div>
@@ -1792,22 +1828,22 @@
   <!-- ===================== ABOUT ===================== -->
   <section class="section" id="about">
     <div class="container">
-      <div class="section-label">About</div>
-      <h2 class="section-title">The Edge</h2>
+      <div class="section-label" data-i18n="about_lbl">About</div>
+      <h2 class="section-title" data-i18n="about_title">The Edge</h2>
       <div class="about-grid">
         <div class="about-text">
-          <p>Supervisory-grade credit risk specialist with ECB secondment experience and a proven track record in
+          <p data-i18n="about_p1">Supervisory-grade credit risk specialist with ECB secondment experience and a proven track record in
             on-site inspection of Significant Institutions under the <strong>Single Supervisory Mechanism
               (SSM)</strong>. <strong>16 inspections concluded</strong> — €282Bn+ in total assets reviewed across
             multiple EU jurisdictions.</p>
-          <p>I combine deep regulatory fluency — <strong>IFRS 9, Basel III/IV, IRB modelling, ECL
+          <p data-i18n="about_p2">I combine deep regulatory fluency — <strong>IFRS 9, Basel III/IV, IRB modelling, ECL
               quantification</strong> — with hands-on buy-side experience at Bankinter Gestión de Activos, where I
             monitored risk across an <strong>€8Bn AUM multi-asset portfolio</strong>.</p>
-          <p>Currently extending my regulatory frontier into <strong>digital asset supervision</strong>, leading the
+          <p data-i18n="about_p3">Currently extending my regulatory frontier into <strong>digital asset supervision</strong>, leading the
             MiCAR authorization lifecycle for European CASPs, VASPs, and EMT issuers at the Bank of Portugal —
             bridging prudential <strong>CRD/CRR requirements</strong> with EU Regulation 2023/1114 (MiCAR) and DORA
             operational resilience standards.</p>
-          <p>Target: senior roles in <strong>Private Credit, Private Equity, Risk Management, Structured Finance,
+          <p data-i18n="about_p4">Target: senior roles in <strong>Private Credit, Private Equity, Risk Management, Structured Finance,
               Portfolio Management, CRE, or Bloomberg/Quant Analytics</strong> at alternative lending platforms or asset
             management firms where regulatory depth, MiCAR expertise, and quantitative rigour are a competitive
             advantage.</p>
@@ -1831,26 +1867,26 @@
         <div class="about-card-col">
           <div class="about-card">
             <div class="about-card-icon">🏛️</div>
-            <h3>Regulatory Intelligence</h3>
-            <p>ECB-seconded inspector with SSM credentialing across Significant Institutions in multiple EU
+            <h3 data-i18n="abt_c1_t">Regulatory Intelligence</h3>
+            <p data-i18n="abt_c1_d">ECB-seconded inspector with SSM credentialing across Significant Institutions in multiple EU
               jurisdictions. €282Bn+ in total assets reviewed.</p>
           </div>
           <div class="about-card">
             <div class="about-card-icon">📊</div>
-            <h3>Quantitative Rigour</h3>
-            <p>Python · R · SQL · Bloomberg BQuant. From AQR automation to VaR back-testing and IRB ECL
+            <h3 data-i18n="abt_c2_t">Quantitative Rigour</h3>
+            <p data-i18n="abt_c2_d">Python · R · SQL · Bloomberg BQuant. From AQR automation to VaR back-testing and IRB ECL
               calibration.</p>
           </div>
           <div class="about-card">
             <div class="about-card-icon">💼</div>
-            <h3>Buy-Side Perspective</h3>
-            <p>One year as quantitative risk specialist managing credit &amp; liquidity monitoring across an €8Bn AUM
+            <h3 data-i18n="abt_c3_t">Buy-Side Perspective</h3>
+            <p data-i18n="abt_c3_d">One year as quantitative risk specialist managing credit &amp; liquidity monitoring across an €8Bn AUM
               multi-asset portfolio at Bankinter.</p>
           </div>
           <div class="about-card micar-card">
             <div class="about-card-icon">🔐</div>
-            <h3>Digital Asset Supervision</h3>
-            <p>MiCAR authorization architect for 4+ EU CASPs, VASPs, and EMT issuers. Bridging TradFi prudential
+            <h3 data-i18n="abt_c4_t">Digital Asset Supervision</h3>
+            <p data-i18n="abt_c4_d">MiCAR authorization architect for 4+ EU CASPs, VASPs, and EMT issuers. Bridging TradFi prudential
               frameworks (CRD/CRR) with EU Reg. 2023/1114 and DORA.</p>
           </div>
         </div>
@@ -1893,17 +1929,17 @@
     style="padding: 72px 0; text-align: center; border-bottom: 1px solid rgba(255, 255, 255, 0.05); box-shadow: inset 0 4px 20px rgba(0, 0, 0, 0.1);">
     <div class="container">
       <h2
-        style="font-family: 'Playfair Display', serif; color: var(--white); font-size: clamp(1.6rem, 3.5vw, 2.2rem); margin-bottom: 12px; line-height: 1.3; font-weight: 500;">
+        style="font-family: 'Playfair Display', serif; color: var(--white); font-size: clamp(1.6rem, 3.5vw, 2.2rem); margin-bottom: 12px; line-height: 1.3; font-weight: 500;" data-i18n="ban_title">
         A track record built on rigorous analysis<br>and high-conviction insights.
       </h2>
-      <p style="color: #8fa8bc; font-size: 1rem; margin-bottom: 32px; max-width: 600px; margin-left: auto; margin-right: auto;">
+      <p style="color: #8fa8bc; font-size: 1rem; margin-bottom: 32px; max-width: 600px; margin-left: auto; margin-right: auto;" data-i18n="ban_sub">
         Select an area of expertise to dive directly into the timeline.
       </p>
       <div class="banner-btn-group">
-        <a href="#exp-micar" class="b-btn micar">Digital Assets (MiCAR)</a>
-        <a href="#exp-ecb" class="b-btn ecb">ECB Supervision</a>
-        <a href="#exp-ssm" class="b-btn ssm">Credit Risk Audits</a>
-        <a href="#exp-am" class="b-btn am">Asset Management</a>
+        <a href="#exp-micar" class="b-btn micar" data-i18n="ban_b1">Digital Assets (MiCAR)</a>
+        <a href="#exp-ecb" class="b-btn ecb" data-i18n="ban_b2">ECB Supervision</a>
+        <a href="#exp-ssm" class="b-btn ssm" data-i18n="ban_b3">Credit Risk Audits</a>
+        <a href="#exp-am" class="b-btn am" data-i18n="ban_b4">Asset Management</a>
       </div>
     </div>
   </section>
@@ -1911,8 +1947,8 @@
   <!-- ===================== EXPERIENCE TIMELINE ===================== -->
   <section class="section section-alt" id="experience">
     <div class="container">
-      <div class="section-label">Career</div>
-      <h2 class="section-title">Professional Experience</h2>
+      <div class="section-label" data-i18n="exp_lbl">Career</div>
+      <h2 class="section-title" data-i18n="exp_title">Professional Experience</h2>
       <div class="timeline">
 
         <!-- ① MiCAR Authorization — Current -->
@@ -1921,13 +1957,13 @@
           <div class="timeline-content micar-content">
             <div class="timeline-header">
               <div>
-                <span class="timeline-company">Bank of Portugal</span>
-                <span class="timeline-badge micar-badge">MiCAR · Current</span>
+                <span class="timeline-company" data-i18n="exp_1_c">Bank of Portugal</span>
+                <span class="timeline-badge micar-badge" data-i18n="exp_1_b">MiCAR · Current</span>
               </div>
-              <span class="timeline-date">2026 – Present</span>
+              <span class="timeline-date" data-i18n="exp_1_d">2026 – Present</span>
             </div>
-            <p class="timeline-role">Supervisor — MiCAR Authorization (CASP / VASP / EMT) · EU Reg. 2023/1114</p>
-            <ul class="timeline-bullets">
+            <p class="timeline-role" data-i18n="exp_1_r">Supervisor — MiCAR Authorization (CASP / VASP / EMT) · EU Reg. 2023/1114</p>
+            <ul class="timeline-bullets" data-i18n="exp_1_bull">
               <li><strong>Authorization Lifecycle Architecture:</strong> Arbitrating end-to-end regulatory
                 authorization for <strong>4+ CASP and VASP applicants</strong> under EU Reg. 2023/1114 — rigorously
                 vetting documentation packages, governance structures, financial resilience, and business model
@@ -1945,7 +1981,7 @@
                 convergence across EU competent authorities</li>
             </ul>
             <div class="micar-links">
-              <span class="micar-links-label">Key Frameworks</span>
+              <span class="micar-links-label" data-i18n="exp_1_l">Key Frameworks</span>
               <a href="https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A32023R1114" target="_blank"
                 rel="noopener" class="micar-link">EU Reg. 2023/1114 ↗</a>
               <a href="https://www.eba.europa.eu/regulation-and-policy/crypto-assets" target="_blank" rel="noopener"
@@ -1964,13 +2000,13 @@
           <div class="timeline-content">
             <div class="timeline-header">
               <div>
-                <span class="timeline-company">European Central Bank</span>
-                <span class="timeline-badge ecb-badge">ECB Secondment</span>
+                <span class="timeline-company" data-i18n="exp_2_c">European Central Bank</span>
+                <span class="timeline-badge ecb-badge" data-i18n="exp_2_b">ECB Secondment</span>
               </div>
-              <span class="timeline-date">Jan – Jun 2025</span>
+              <span class="timeline-date" data-i18n="exp_2_d">Jan – Jun 2025</span>
             </div>
-            <p class="timeline-role">Credit Risk Inspector — JST-Embedded · €32Bn CRE Portfolio Focus</p>
-            <ul class="timeline-bullets">
+            <p class="timeline-role" data-i18n="exp_2_r">Credit Risk Inspector — JST-Embedded · €32Bn CRE Portfolio Focus</p>
+            <ul class="timeline-bullets" data-i18n="exp_2_bull">
               <li>Spearheaded bottom-up AQR of a <strong>€4Bn CRE sub-portfolio</strong> (Offices, Logistics,
                 Hospitality); identified structural misalignments between Stage 3/NPE backstop definitions and ECB
                 AQR-Manual Phase II criteria</li>
@@ -1992,13 +2028,13 @@
           <div class="timeline-content">
             <div class="timeline-header">
               <div>
-                <span class="timeline-company">Bank of Portugal</span>
-                <span class="timeline-badge bop-badge">SSM · 2022–Present</span>
+                <span class="timeline-company" data-i18n="exp_3_c">Bank of Portugal</span>
+                <span class="timeline-badge bop-badge" data-i18n="exp_3_b">SSM · 2022–Present</span>
               </div>
-              <span class="timeline-date">2022 – Present</span>
+              <span class="timeline-date" data-i18n="exp_3_d">2022 – Present</span>
             </div>
-            <p class="timeline-role">On-Site Inspector — Credit Risk (SSM) · Equiv. Senior Credit Analyst</p>
-            <ul class="timeline-bullets">
+            <p class="timeline-role" data-i18n="exp_3_r">On-Site Inspector — Credit Risk (SSM) · Equiv. Senior Credit Analyst</p>
+            <ul class="timeline-bullets" data-i18n="exp_3_bull">
               <li><strong>RWA Optimization &amp; IRB/SA Audit:</strong> Audited Risk-Weighted Amounts for an IRB
                 portfolio under CRR II at a <strong>€102Bn SI</strong>; exposed critical segmentation errors,
                 culminating in a mandatory <strong>€210M upward RWA correction</strong>. Extended to 5 LSIs
@@ -2024,12 +2060,12 @@
           <div class="timeline-content">
             <div class="timeline-header">
               <div>
-                <span class="timeline-company">Bankinter Gestión de Activos</span>
+                <span class="timeline-company" data-i18n="exp_4_c">Bankinter Gestión de Activos</span>
               </div>
-              <span class="timeline-date">2021 – 2022</span>
+              <span class="timeline-date" data-i18n="exp_4_d">2021 – 2022</span>
             </div>
-            <p class="timeline-role">Analyst — Asset Management · Quantitative Risk</p>
-            <ul class="timeline-bullets">
+            <p class="timeline-role" data-i18n="exp_4_r">Analyst — Asset Management · Quantitative Risk</p>
+            <ul class="timeline-bullets" data-i18n="exp_4_bull">
               <li>Fundamental equity valuations (DCF &amp; Piotroski F-Score) across <strong>€8Bn AUM</strong>
                 multi-asset macro portfolio, systematically bridging fundamental resilience and market pricing for
                 US-Technology long positions</li>
@@ -2048,11 +2084,11 @@
           <div class="timeline-marker din"></div>
           <div class="timeline-content">
             <div class="timeline-header">
-              <div><span class="timeline-company">DINÂMIA'CET – ISCTE</span></div>
-              <span class="timeline-date">2020</span>
+              <div><span class="timeline-company" data-i18n="exp_5_c">DINÂMIA'CET – ISCTE</span></div>
+              <span class="timeline-date" data-i18n="exp_5_d">2020</span>
             </div>
-            <p class="timeline-role">Research Scholar — Economic Analysis &amp; Machine Learning</p>
-            <ul class="timeline-bullets">
+            <p class="timeline-role" data-i18n="exp_5_r">Research Scholar — Economic Analysis &amp; Machine Learning</p>
+            <ul class="timeline-bullets" data-i18n="exp_5_bull">
               <li>Propensity score matching + Neural Networks / Random Forests / LASSO to isolate the causal
                 financial impact of Portugal 2020 SME incentive programs on business growth. Achieved
                 <strong>97% predictive accuracy</strong>, shaping policy-grade capital allocation strategy
@@ -2066,11 +2102,11 @@
           <div class="timeline-marker olae"></div>
           <div class="timeline-content">
             <div class="timeline-header">
-              <div><span class="timeline-company">OLAE — Lusophone Observatory</span></div>
-              <span class="timeline-date">2018 – 2020</span>
+              <div><span class="timeline-company" data-i18n="exp_6_c">OLAE — Lusophone Observatory</span></div>
+              <span class="timeline-date" data-i18n="exp_6_d">2018 – 2020</span>
             </div>
-            <p class="timeline-role">Working Student — Economic Consultant</p>
-            <ul class="timeline-bullets">
+            <p class="timeline-role" data-i18n="exp_6_r">Working Student — Economic Consultant</p>
+            <ul class="timeline-bullets" data-i18n="exp_6_bull">
               <li>Authored Portugal–Taiwan bilateral investment guide; engineered business plans for
                 <strong>4 approved multilateral financing projects</strong> (African Development Bank / World Bank)
                 via feasibility analyses and ROI projections
@@ -2086,36 +2122,36 @@
   <!-- ===================== DEAL SHEET ===================== -->
   <section class="section" id="deals">
     <div class="container">
-      <div class="section-label">Deal Sheet</div>
-      <h2 class="section-title">Select Engagements</h2>
-      <p class="section-sub">Anonymised in compliance with SSM supervisory confidentiality obligations.</p>
+      <div class="section-label" data-i18n="deal_lbl">Deal Sheet</div>
+      <h2 class="section-title" data-i18n="deal_title">Select Engagements</h2>
+      <p class="section-sub" data-i18n="deal_sub">Anonymised in compliance with SSM supervisory confidentiality obligations.</p>
       <div class="deal-grid">
 
         <!-- Card 1 — ECL Recalibration -->
         <div class="deal-card" data-aos>
-          <div class="deal-badge">Credit Risk · IFRS 9 · ECL</div>
-          <h3 class="deal-title">ECL Recalibration — Under-Provisioned SME/CRE Book</h3>
-          <p class="deal-desc">Engineered granular IFRS 9-compliant ECL reviews across SME and CRE portfolios at
+          <div class="deal-badge" data-i18n="dc1_b">Credit Risk · IFRS 9 · ECL</div>
+          <h3 class="deal-title" data-i18n="dc1_t">ECL Recalibration — Under-Provisioned SME/CRE Book</h3>
+          <p class="deal-desc" data-i18n="dc1_d">Engineered granular IFRS 9-compliant ECL reviews across SME and CRE portfolios at
             multiple SIs. Isolated systematic PD/LGD underestimation; forced full ECL methodology recalibration and
             mandatory provisioning uplifts across economic group aggregated exposures.</p>
           <div class="deal-metrics">
             <div class="deal-metric">
               <span class="metric-val">€40M+</span>
-              <span class="metric-lbl">Under-provisioned exposures</span>
+              <span class="metric-lbl" data-i18n="dc1_m1">Under-provisioned exposures</span>
             </div>
             <div class="deal-metric">
               <span class="metric-val">€28M</span>
-              <span class="metric-lbl">Provisions demanded</span>
+              <span class="metric-lbl" data-i18n="dc1_m2">Provisions demanded</span>
             </div>
           </div>
           <div class="deal-tags">
             <span>IFRS 9</span><span>ECL</span><span>PD/LGD</span><span>SME</span><span>CRE</span>
           </div>
-          <button class="deal-expand-btn" aria-expanded="false">Methodology <span class="expand-arrow">↓</span></button>
+          <button class="deal-expand-btn" aria-expanded="false"><span data-i18n="deal_btn_m">Methodology</span> <span class="expand-arrow">↓</span></button>
           <div class="deal-expanded" aria-hidden="true">
             <div class="deal-expanded-inner">
-              <p class="expand-section-label">Analytical Framework</p>
-              <ul>
+              <p class="expand-section-label" data-i18n="deal_lbl_a">Analytical Framework</p>
+              <ul data-i18n="dc1_a">
                 <li>IFRS 9 Stage 1/2/3 staging trigger analysis via <strong>SICR criteria</strong> — assessed PD
                   migration against portfolio benchmarks and qualitative backstops (EBA GL on NPE management)</li>
                 <li>PD calibration: Through-The-Cycle (TTC) vs Point-In-Time (PIT) comparison per <strong>EBA RTS on
@@ -2124,8 +2160,8 @@
                 <li>LGD haircut benchmarking per <strong>CRR Art. 230/228</strong>; challenged non-compliant collateral
                   valuations and aggregated economic group exposure treatment (Art. 390 CRR)</li>
               </ul>
-              <p class="expand-section-label">Output</p>
-              <ul>
+              <p class="expand-section-label" data-i18n="deal_lbl_o">Output</p>
+              <ul data-i18n="dc1_o">
                 <li>3 formal supervisory findings delivered. Full ECL model recalibration directive issued. Independent
                   model review mandated within 90 days</li>
               </ul>
@@ -2135,29 +2171,29 @@
 
         <!-- Card 2 — CRE Forensic AQR (ECB) -->
         <div class="deal-card" data-aos>
-          <div class="deal-badge">ECB · Real Estate · AQR · JST</div>
-          <h3 class="deal-title">CRE Forensic AQR — ECB Joint Supervisory Team</h3>
-          <p class="deal-desc">Spearheaded a bottom-up Asset Quality Review of a €4Bn CRE sub-portfolio (Offices,
+          <div class="deal-badge" data-i18n="dc2_b">ECB · Real Estate · AQR · JST</div>
+          <h3 class="deal-title" data-i18n="dc2_t">CRE Forensic AQR — ECB Joint Supervisory Team</h3>
+          <p class="deal-desc" data-i18n="dc2_d">Spearheaded a bottom-up Asset Quality Review of a €4Bn CRE sub-portfolio (Offices,
             Logistics, Hospitality) within an ECB JST. Engineered a proprietary DSCR and exit cap rate stress model,
             exposing a €25M provisioning deficiency from uncaptured cap rate compression.</p>
           <div class="deal-metrics">
             <div class="deal-metric">
               <span class="metric-val">€25M</span>
-              <span class="metric-lbl">Provisioning deficiency</span>
+              <span class="metric-lbl" data-i18n="dc2_m1">Provisioning deficiency</span>
             </div>
             <div class="deal-metric">
               <span class="metric-val">€32Bn</span>
-              <span class="metric-lbl">CRE portfolio scope</span>
+              <span class="metric-lbl" data-i18n="dc2_m2">CRE portfolio scope</span>
             </div>
           </div>
           <div class="deal-tags">
             <span>ECB</span><span>CRE/IPRE</span><span>DSCR</span><span>AQR</span><span>JST</span>
           </div>
-          <button class="deal-expand-btn" aria-expanded="false">Methodology <span class="expand-arrow">↓</span></button>
+          <button class="deal-expand-btn" aria-expanded="false"><span data-i18n="deal_btn_m2">Methodology</span> <span class="expand-arrow">↓</span></button>
           <div class="deal-expanded" aria-hidden="true">
             <div class="deal-expanded-inner">
-              <p class="expand-section-label">Analytical Framework</p>
-              <ul>
+              <p class="expand-section-label" data-i18n="deal_lbl_a2">Analytical Framework</p>
+              <ul data-i18n="dc2_a">
                 <li>File-by-file AQR per <strong>ECB AQR Manual Phase II</strong>; assessed individual borrower credit
                   files against NPE backstop definitions (Art. 47a CRR) and Stage 3 classification criteria</li>
                 <li>Proprietary <strong>Excel DSCR stress model</strong>: base / adverse / severely adverse scenarios
@@ -2167,8 +2203,8 @@
                     reporting</strong>; identified misclassified Stage 2 exposures requiring Stage 3 reclassification
                 </li>
               </ul>
-              <p class="expand-section-label">Output</p>
-              <ul>
+              <p class="expand-section-label" data-i18n="deal_lbl_o2">Output</p>
+              <ul data-i18n="dc2_o">
                 <li>€25M provisioning deficiency quantified and escalated to JST. 3 binding mandates to SI senior
                   management. Formal remediation deadline set within supervisory letter</li>
               </ul>
@@ -2178,29 +2214,29 @@
 
         <!-- Card 3 — IRB Capital Correction -->
         <div class="deal-card" data-aos>
-          <div class="deal-badge">Basel III/IV · RWA · IRB · CRR II</div>
-          <h3 class="deal-title">IRB Capital Correction — €102Bn Significant Institution</h3>
-          <p class="deal-desc">Audited Risk-Weighted Amounts for an IRB portfolio under CRR II at a €102Bn SI.
+          <div class="deal-badge" data-i18n="dc3_b">Basel III/IV · RWA · IRB · CRR II</div>
+          <h3 class="deal-title" data-i18n="dc3_t">IRB Capital Correction — €102Bn Significant Institution</h3>
+          <p class="deal-desc" data-i18n="dc3_d">Audited Risk-Weighted Amounts for an IRB portfolio under CRR II at a €102Bn SI.
             Exposed critical segmentation errors culminating in a mandatory €210M upward RWA correction. Extended to
             5 LSIs (€27Bn), forcing a 10% SA-RWA increase via collateral reclassification.</p>
           <div class="deal-metrics">
             <div class="deal-metric">
               <span class="metric-val">€210M</span>
-              <span class="metric-lbl">RWA correction enforced</span>
+              <span class="metric-lbl" data-i18n="dc3_m1">RWA correction enforced</span>
             </div>
             <div class="deal-metric">
               <span class="metric-val">€102Bn</span>
-              <span class="metric-lbl">SI portfolio scope</span>
+              <span class="metric-lbl" data-i18n="dc3_m2">SI portfolio scope</span>
             </div>
           </div>
           <div class="deal-tags">
             <span>IRB</span><span>CRR II</span><span>RWA</span><span>Basel III/IV</span><span>SA Review</span>
           </div>
-          <button class="deal-expand-btn" aria-expanded="false">Methodology <span class="expand-arrow">↓</span></button>
+          <button class="deal-expand-btn" aria-expanded="false"><span data-i18n="deal_btn_m3">Methodology</span> <span class="expand-arrow">↓</span></button>
           <div class="deal-expanded" aria-hidden="true">
             <div class="deal-expanded-inner">
-              <p class="expand-section-label">Analytical Framework</p>
-              <ul>
+              <p class="expand-section-label" data-i18n="deal_lbl_a3">Analytical Framework</p>
+              <ul data-i18n="dc3_a">
                 <li>IRB model benchmarking under <strong>EBA RTS on IRB</strong> (EBA/RTS/2016/03); portfolio
                   segmentation analysis (retail vs corporate exposure classes per <strong>CRR Art. 147</strong>) —
                   identified incorrect retail SME classification inflating capital relief</li>
@@ -2210,8 +2246,8 @@
                 <li>RWA sensitivity analysis across PD, LGD, and EAD parameter perturbations; benchmarked against EBA
                   supervisory outlier data (annual IRB survey)</li>
               </ul>
-              <p class="expand-section-label">Output</p>
-              <ul>
+              <p class="expand-section-label" data-i18n="deal_lbl_o3">Output</p>
+              <ul data-i18n="dc3_o">
                 <li>Mandatory €210M upward RWA correction at €102Bn SI. 10% SA-RWA increase across 5 LSIs. Formal
                   remediation plan and independent model validation required within 12 months</li>
               </ul>
@@ -2221,30 +2257,30 @@
 
         <!-- Card 4 — MiCAR Authorization Pipeline -->
         <div class="deal-card micar-deal" data-aos>
-          <div class="deal-badge amethyst">Digital Assets · MiCAR · CASP · VASP</div>
-          <h3 class="deal-title">MiCAR Authorization Pipeline — EU Crypto-Native &amp; TradFi Firms</h3>
-          <p class="deal-desc">Arbitrating end-to-end MiCAR regulatory authorization for 4+ CASP and VASP applicants
+          <div class="deal-badge amethyst" data-i18n="dc4_b">Digital Assets · MiCAR · CASP · VASP</div>
+          <h3 class="deal-title" data-i18n="dc4_t">MiCAR Authorization Pipeline — EU Crypto-Native &amp; TradFi Firms</h3>
+          <p class="deal-desc" data-i18n="dc4_d">Arbitrating end-to-end MiCAR regulatory authorization for 4+ CASP and VASP applicants
             across the EU. Vetting governance structures, financial resilience, and business model viability under EU
             Reg. 2023/1114. Navigating complex TradFi institution transitions bridging CRD/CRR with MiCAR and DORA
             compliance.</p>
           <div class="deal-metrics">
             <div class="deal-metric">
               <span class="metric-val">4+</span>
-              <span class="metric-lbl">CASPs/VASPs supervised</span>
+              <span class="metric-lbl" data-i18n="dc4_m1">CASPs/VASPs supervised</span>
             </div>
             <div class="deal-metric">
               <span class="metric-val">3+</span>
-              <span class="metric-lbl">EMT/ART frameworks assessed</span>
+              <span class="metric-lbl" data-i18n="dc4_m2">EMT/ART frameworks assessed</span>
             </div>
           </div>
           <div class="deal-tags">
             <span>MiCAR</span><span>CASP</span><span>VASP</span><span>EMT/ART</span><span>DORA</span>
           </div>
-          <button class="deal-expand-btn" aria-expanded="false">Process <span class="expand-arrow">↓</span></button>
+          <button class="deal-expand-btn" aria-expanded="false"><span data-i18n="deal_btn_p">Process</span> <span class="expand-arrow">↓</span></button>
           <div class="deal-expanded" aria-hidden="true">
             <div class="deal-expanded-inner">
-              <p class="expand-section-label">Authorization Process (6-Phase)</p>
-              <ul>
+              <p class="expand-section-label" data-i18n="deal_lbl_p">Authorization Process (6-Phase)</p>
+              <ul data-i18n="dc4_a">
                 <li><strong>Phase 1 — Completeness:</strong> Application package review per <strong>MiCAR Art. 62/Art.
                     16</strong> (CASP/EMT). EBA RTS on information requirements verification</li>
                 <li><strong>Phase 2 — Business Model:</strong> Viability assessment of crypto-asset service scope
@@ -2264,29 +2300,29 @@
 
         <!-- Card 5 — Behavioral Maturity Model -->
         <div class="deal-card" data-aos>
-          <div class="deal-badge">Quantitative · Behavioral Risk · IFRS 9</div>
-          <h3 class="deal-title">Behavioral Maturity Recalibration — €46Bn Universal Bank</h3>
-          <p class="deal-desc">Deconstructed behavioral maturity models on revolving credit products at a €46Bn
+          <div class="deal-badge" data-i18n="dc5_b">Quantitative · Behavioral Risk · IFRS 9</div>
+          <h3 class="deal-title" data-i18n="dc5_t">Behavioral Maturity Recalibration — €46Bn Universal Bank</h3>
+          <p class="deal-desc" data-i18n="dc5_d">Deconstructed behavioral maturity models on revolving credit products at a €46Bn
             universal bank. Demonstrated that fixed maturity horizons systematically understated actual product
             maturity, requiring a full algorithmic recalibration and driving a material ECL provisioning increase.</p>
           <div class="deal-metrics">
             <div class="deal-metric">
               <span class="metric-val">€6M</span>
-              <span class="metric-lbl">Provisioning increase</span>
+              <span class="metric-lbl" data-i18n="dc5_m1">Provisioning increase</span>
             </div>
             <div class="deal-metric">
               <span class="metric-val">€46Bn</span>
-              <span class="metric-lbl">Universal bank portfolio</span>
+              <span class="metric-lbl" data-i18n="dc5_m2">Universal bank portfolio</span>
             </div>
           </div>
           <div class="deal-tags">
             <span>BM Model</span><span>Revolving Credit</span><span>IFRS 9</span><span>ECL</span>
           </div>
-          <button class="deal-expand-btn" aria-expanded="false">Methodology <span class="expand-arrow">↓</span></button>
+          <button class="deal-expand-btn" aria-expanded="false"><span data-i18n="deal_btn_m4">Methodology</span> <span class="expand-arrow">↓</span></button>
           <div class="deal-expanded" aria-hidden="true">
             <div class="deal-expanded-inner">
-              <p class="expand-section-label">Analytical Framework</p>
-              <ul>
+              <p class="expand-section-label" data-i18n="deal_lbl_a4">Analytical Framework</p>
+              <ul data-i18n="dc5_a">
                 <li>Fixed vs behavioral maturity assumption analysis per <strong>EBA GL on LOM
                     (EBA/GL/2017/06)</strong>; replicated bank's internal BM model using historical repayment data
                   across revolving credit card and overdraft portfolios</li>
@@ -2297,8 +2333,8 @@
                   product segment
                 </li>
               </ul>
-              <p class="expand-section-label">Output</p>
-              <ul>
+              <p class="expand-section-label" data-i18n="deal_lbl_o4">Output</p>
+              <ul data-i18n="dc5_o">
                 <li>€6M ECL provisioning increase. Mandatory algorithmic recalibration with new vintage-based behavioral
                   maturity assumptions. Bank required to remediate within next ICAAP submission</li>
               </ul>
@@ -2308,29 +2344,29 @@
 
         <!-- Card 6 — VaR Back-Testing -->
         <div class="deal-card" data-aos>
-          <div class="deal-badge">Quantitative · Asset Management · ESG</div>
-          <h3 class="deal-title">VaR Back-Testing &amp; Liquidity Suite — €8Bn Multi-Asset Portfolio</h3>
-          <p class="deal-desc">Architected a comprehensive VaR back-testing engine and automated LCR/NSFR/HQLA
+          <div class="deal-badge" data-i18n="dc6_b">Quantitative · Asset Management · ESG</div>
+          <h3 class="deal-title" data-i18n="dc6_t">VaR Back-Testing &amp; Liquidity Suite — €8Bn Multi-Asset Portfolio</h3>
+          <p class="deal-desc" data-i18n="dc6_d">Architected a comprehensive VaR back-testing engine and automated LCR/NSFR/HQLA
             monitoring suite across €8Bn AUM at Bankinter. Stress-tested under GFC, COVID-19, and 2022 Rate Shock
             scenarios. Integrated SFDR Art. 6/8/9 alignment for 5 Pension Fund mandates.</p>
           <div class="deal-metrics">
             <div class="deal-metric">
               <span class="metric-val">€8Bn</span>
-              <span class="metric-lbl">AUM stress-tested</span>
+              <span class="metric-lbl" data-i18n="dc6_m1">AUM stress-tested</span>
             </div>
             <div class="deal-metric">
               <span class="metric-val">3</span>
-              <span class="metric-lbl">Historical crisis scenarios</span>
+              <span class="metric-lbl" data-i18n="dc6_m2">Historical crisis scenarios</span>
             </div>
           </div>
           <div class="deal-tags">
             <span>VaR</span><span>BQuant</span><span>LCR/NSFR</span><span>Bloomberg</span><span>SFDR</span>
           </div>
-          <button class="deal-expand-btn" aria-expanded="false">Methodology <span class="expand-arrow">↓</span></button>
+          <button class="deal-expand-btn" aria-expanded="false"><span data-i18n="deal_btn_m5">Methodology</span> <span class="expand-arrow">↓</span></button>
           <div class="deal-expanded" aria-hidden="true">
             <div class="deal-expanded-inner">
-              <p class="expand-section-label">Analytical Framework</p>
-              <ul>
+              <p class="expand-section-label" data-i18n="deal_lbl_a5">Analytical Framework</p>
+              <ul data-i18n="dc6_a">
                 <li><strong>VaR Engine:</strong> Historical simulation VaR (99% confidence, 10-day horizon) per Basel
                   III market risk standards; <strong>Kupiec POF test</strong> and Christoffersen independence test for
                   back-testing validation; exception tracking against Basel traffic light thresholds</li>
@@ -2341,8 +2377,8 @@
                   Rate Shock); identified selective duration risk under-exposure in fixed income sleeve ahead of 2022
                   ECB hiking cycle</li>
               </ul>
-              <p class="expand-section-label">Output</p>
-              <ul>
+              <p class="expand-section-label" data-i18n="deal_lbl_o5">Output</p>
+              <ul data-i18n="dc6_o">
                 <li>Proactive duration risk repositioning prior to 2022 Rate Shock. Automated monitoring reduced manual
                   LCR reporting effort by ~20%. SFDR Art. 6/8/9 alignment across 5 Pension Fund mandates</li>
               </ul>
@@ -2359,23 +2395,23 @@
     <div class="numbers-banner-inner">
       <div class="banner-stat">
         <span class="banner-num">16</span>
-        <span class="banner-label">On-Site Inspections</span>
+        <span class="banner-label" data-i18n="fb_l1">On-Site Inspections</span>
       </div>
       <div class="banner-stat">
         <span class="banner-num sky">€282Bn+</span>
-        <span class="banner-label">Assets Audited</span>
+        <span class="banner-label" data-i18n="fb_l2">Assets Audited</span>
       </div>
       <div class="banner-stat">
         <span class="banner-num sage">€172M+</span>
-        <span class="banner-label">Provisioning Impact</span>
+        <span class="banner-label" data-i18n="fb_l3">Provisioning Impact</span>
       </div>
       <div class="banner-stat">
         <span class="banner-num warm">€368M</span>
-        <span class="banner-label">RWA Corrections</span>
+        <span class="banner-label" data-i18n="fb_l4">RWA Corrections</span>
       </div>
       <div class="banner-stat">
         <span class="banner-num amethyst">4+</span>
-        <span class="banner-label">MiCAR CASPs Supervised</span>
+        <span class="banner-label" data-i18n="fb_l5">MiCAR CASPs Supervised</span>
       </div>
     </div>
   </div>
@@ -2383,14 +2419,14 @@
   <!-- ===================== SKILLS ===================== -->
   <section class="section section-alt" id="skills">
     <div class="container">
-      <div class="section-label">Technical Stack</div>
-      <h2 class="section-title">Capabilities</h2>
+      <div class="section-label" data-i18n="skill_lbl">Technical Stack</div>
+      <h2 class="section-title" data-i18n="skill_title">Capabilities</h2>
 
       <!-- Top row: 3 columns -->
       <div class="skills-grid">
 
         <div class="skill-block">
-          <h3 class="skill-block-title">Programming</h3>
+          <h3 class="skill-block-title" data-i18n="skill_b1">Programming</h3>
           <div class="skill-bars">
             <div class="skill-row">
               <span class="skill-name">Python (Pandas · NumPy · Sklearn)</span>
@@ -2426,7 +2462,7 @@
         </div>
 
         <div class="skill-block">
-          <h3 class="skill-block-title">Finance Platforms</h3>
+          <h3 class="skill-block-title" data-i18n="skill_b2">Finance Platforms</h3>
           <div class="tool-icons">
             <div class="tool-chip">
               <div class="tool-icon bloomberg">BB</div>
@@ -2448,7 +2484,7 @@
         </div>
 
         <div class="skill-block micar-skill-block">
-          <h3 class="skill-block-title amethyst">Digital Assets &amp; Crypto</h3>
+          <h3 class="skill-block-title amethyst" data-i18n="skill_b3">Digital Assets &amp; Crypto</h3>
           <ul class="model-list">
             <li>MiCAR (EU Reg. 2023/1114)</li>
             <li>CASP / VASP Authorization</li>
@@ -2465,7 +2501,7 @@
       <div class="skills-grid-bottom">
 
         <div class="skill-block">
-          <h3 class="skill-block-title">Financial Modelling</h3>
+          <h3 class="skill-block-title" data-i18n="skill_b4">Financial Modelling</h3>
           <ul class="model-list">
             <li>Discounted Cash Flow (DCF)</li>
             <li>Leveraged Buyout Model (LBO)</li>
@@ -2477,7 +2513,7 @@
         </div>
 
         <div class="skill-block">
-          <h3 class="skill-block-title">Regulatory Domain</h3>
+          <h3 class="skill-block-title" data-i18n="skill_b5">Regulatory Domain</h3>
           <div class="reg-tags">
             <span>IFRS 9</span><span>Basel III / IV</span><span>CRR / CRD</span>
             <span>IRB Framework</span><span>VaR</span><span>RWA</span>
@@ -2492,22 +2528,22 @@
 
       <!-- Languages -->
       <div class="lang-row">
-        <h3 class="skill-block-title">Languages</h3>
+        <h3 class="skill-block-title" data-i18n="skill_lang">Languages</h3>
         <div class="lang-pills">
           <div class="lang-pill">
             <span class="lang-flag">🇵🇹</span>
-            <span class="lang-name">Portuguese</span>
-            <span class="lang-level native">Native</span>
+            <span class="lang-name" data-i18n="lang_pt">Portuguese</span>
+            <span class="lang-level native" data-i18n="lang_nat">Native</span>
           </div>
           <div class="lang-pill">
             <span class="lang-flag">🇬🇧</span>
-            <span class="lang-name">English</span>
-            <span class="lang-level c2">C2</span>
+            <span class="lang-name" data-i18n="lang_en">English</span>
+            <span class="lang-level c2" data-i18n="lang_c2">C2</span>
           </div>
           <div class="lang-pill">
             <span class="lang-flag">🇪🇸</span>
-            <span class="lang-name">Spanish</span>
-            <span class="lang-level b2">B2</span>
+            <span class="lang-name" data-i18n="lang_es">Spanish</span>
+            <span class="lang-level b2" data-i18n="lang_b2">B2</span>
           </div>
           <div class="lang-pill">
             <span class="lang-flag">🇫🇷</span>
@@ -2523,8 +2559,8 @@
   <!-- ===================== EDUCATION ===================== -->
   <section class="section" id="education">
     <div class="container">
-      <div class="section-label">Education</div>
-      <h2 class="section-title">Academic Background</h2>
+      <div class="section-label" data-i18n="edu_lbl">Education</div>
+      <h2 class="section-title" data-i18n="edu_title">Academic Background</h2>
       <div class="edu-grid">
         <div class="edu-card">
           <div class="edu-degree">M.Sc. Economics</div>
@@ -2559,15 +2595,15 @@
   <!-- ===================== TARGET ROLES ===================== -->
   <section class="section" id="target-roles">
     <div class="container">
-      <div class="section-label">Open To</div>
-      <h2 class="section-title">Target Opportunities</h2>
+      <div class="section-label" data-i18n="tr_lbl">Open To</div>
+      <h2 class="section-title" data-i18n="tr_title">Target Opportunities</h2>
       <div class="target-roles-grid">
 
         <!-- 1. Private Credit -->
         <div class="target-role-card">
           <span class="target-role-icon">💳</span>
-          <div class="target-role-title">Private Credit</div>
-          <p class="target-role-desc">Targeting direct lending, unitranche, and senior secured underwriting roles at
+          <div class="target-role-title" data-i18n="tr_c1_t">Private Credit</div>
+          <p class="target-role-desc" data-i18n="tr_c1_d">Targeting direct lending, unitranche, and senior secured underwriting roles at
             private credit funds, CLO managers, and direct lending platforms — translating supervisory-grade ECL
             modelling, IFRS 9 PD/LGD calibration, and 16-inspection-level borrower forensics directly into deal
             conviction and portfolio construction.</p>
@@ -2584,8 +2620,8 @@
         <!-- 2. Private Equity -->
         <div class="target-role-card">
           <span class="target-role-icon">🏗️</span>
-          <div class="target-role-title">Private Equity</div>
-          <p class="target-role-desc">Open to credit and risk functions at PE firms, including LBO deal support,
+          <div class="target-role-title" data-i18n="tr_c2_t">Private Equity</div>
+          <p class="target-role-desc" data-i18n="tr_c2_d">Open to credit and risk functions at PE firms, including LBO deal support,
             portfolio company financial risk oversight, and due diligence roles — combining supervisory forensics
             (IRB validation, CRE AQR at €282Bn+ scale) with financial modelling and capital structure assessment
             to sharpen underwriting edge.</p>
@@ -2602,8 +2638,8 @@
         <!-- 3. Risk Management -->
         <div class="target-role-card">
           <span class="target-role-icon">🛡️</span>
-          <div class="target-role-title">Risk Management</div>
-          <p class="target-role-desc">Seeking credit risk management, enterprise risk, and model risk validation
+          <div class="target-role-title" data-i18n="tr_c3_t">Risk Management</div>
+          <p class="target-role-desc" data-i18n="tr_c3_d">Seeking credit risk management, enterprise risk, and model risk validation
             roles at banks, insurance groups, and multi-asset managers — leveraging 16 SSM on-site inspections,
             IFRS 9 ECL modelling, and IRB validation experience against the full EBA/ECB regulatory framework
             to strengthen institutional risk culture.</p>
@@ -2620,8 +2656,8 @@
         <!-- 4. Structured Finance -->
         <div class="target-role-card">
           <span class="target-role-icon">📐</span>
-          <div class="target-role-title">Structured Finance</div>
-          <p class="target-role-desc">Targeting structured credit, CLO/ABS analysis, RMBS/CMBS portfolio work, and
+          <div class="target-role-title" data-i18n="tr_c4_t">Structured Finance</div>
+          <p class="target-role-desc" data-i18n="tr_c4_d">Targeting structured credit, CLO/ABS analysis, RMBS/CMBS portfolio work, and
             leveraged finance underwriting at alternative asset managers and investment banks — where IFRS 9,
             CRE/IPRE forensics, and IRB modelling depth translate directly into origination alpha and portfolio
             risk optimisation.</p>
@@ -2638,8 +2674,8 @@
         <!-- 5. Portfolio Management -->
         <div class="target-role-card">
           <span class="target-role-icon">📈</span>
-          <div class="target-role-title">Portfolio Management</div>
-          <p class="target-role-desc">Seeking credit portfolio management, investment risk officer, and buy-side
+          <div class="target-role-title" data-i18n="tr_c5_t">Portfolio Management</div>
+          <p class="target-role-desc" data-i18n="tr_c5_d">Seeking credit portfolio management, investment risk officer, and buy-side
             risk management mandates at asset managers, credit funds, and pension funds — combining €8Bn AUM
             operational experience with institutional-grade risk governance, SFDR alignment, and Bloomberg
             analytics expertise.</p>
@@ -2656,8 +2692,8 @@
         <!-- 6. CRE Specialist -->
         <div class="target-role-card">
           <span class="target-role-icon">🏘️</span>
-          <div class="target-role-title">CRE Specialist</div>
-          <p class="target-role-desc">Targeting dedicated CRE/IPRE credit specialist, real estate debt fund analyst,
+          <div class="target-role-title" data-i18n="tr_c6_t">CRE Specialist</div>
+          <p class="target-role-desc" data-i18n="tr_c6_d">Targeting dedicated CRE/IPRE credit specialist, real estate debt fund analyst,
             and commercial real estate risk roles — backed by direct ECB JST experience running DSCR stress models
             across €4Bn CRE sub-portfolios (offices, logistics, hospitality) with exit cap rate sensitivity and
             Phase II AQR forensics.</p>
@@ -2674,8 +2710,8 @@
         <!-- 7. Bloomberg & Quant Analytics -->
         <div class="target-role-card">
           <span class="target-role-icon">📟</span>
-          <div class="target-role-title">Bloomberg &amp; Quant Analytics</div>
-          <p class="target-role-desc">Open to quantitative analytics, risk intelligence, and data-driven advisory
+          <div class="target-role-title" data-i18n="tr_c7_t">Bloomberg &amp; Quant Analytics</div>
+          <p class="target-role-desc" data-i18n="tr_c7_d">Open to quantitative analytics, risk intelligence, and data-driven advisory
             roles — including Bloomberg Intelligence, sell-side risk analytics, and RegTech platforms —
             where Python automation, BQL/BQuant expertise, and MiCAR supervisory knowledge command a premium
             at the data-analytics frontier of institutional finance.</p>
@@ -2696,11 +2732,10 @@
   <!-- ===================== CONTACT ===================== -->
   <section class="section section-dark" id="contact">
     <div class="container contact-container">
-      <div class="section-label light">Contact</div>
-      <h2 class="section-title light">Let's Connect</h2>
-      <p class="contact-sub">Open to senior roles in Private Credit, Private Equity, Risk Management, Structured
-        Finance,
-        Portfolio Management, CRE, and Bloomberg Analytics across Europe.</p>
+      <div class="section-label light" data-i18n="ct_lbl">Contact</div>
+      <h2 class="section-title light" data-i18n="ct_title">Let's Connect</h2>
+      <p class="contact-sub" data-i18n="ct_sub">Open to senior roles in Private Credit, Private Equity, Risk Management, Structured
+        Finance, Portfolio Management, CRE, and Bloomberg Analytics across Europe.</p>
       <div class="contact-links">
         <a href="mailto:jpoao.oliveira@gmail.com" class="contact-btn">
           <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
@@ -2724,7 +2759,7 @@
   <!-- ===================== FOOTER ===================== -->
   <footer class="footer">
     <div class="container">
-      <p>© 2026 João Pedro Oliveira · Lisbon, Portugal</p>
+      <p data-i18n="footer_cpy">© 2026 João Pedro Oliveira · Lisbon, Portugal</p>
     </div>
   </footer>
 
@@ -2905,6 +2940,553 @@
         if (a.getAttribute('href') === '#' + current) a.style.color = '#334756';
       });
     }, { passive: true });
+
+    // ---- i18n TRANSLATIONS (Specialized/Narrow implementation) ----
+    const translations = {
+  "en": {
+    "nav_home": "Home",
+    "nav_about": "About",
+    "nav_exp": "Experience",
+    "nav_deals": "Deal Sheet",
+    "nav_skills": "Skills",
+    "nav_edu": "Education",
+    "nav_roles": "Open To",
+    "nav_contact": "Contact",
+    "hero_eyebrow": "Credit Risk · Private Credit · MiCAR Authorization · Asset Management",
+    "hero_tagline": "Bridging <em>supervisory-grade credit risk intelligence</em><br>\n        with high-conviction <em>private credit underwriting</em> —<br>\n        now extending the regulatory frontier into<br>\n        <span class=\"micar-em\">digital asset authorization under MiCAR</span>.",
+    "hero_stat1": "Assets audited",
+    "hero_stat2": "Provisioning impact",
+    "hero_stat3": "RWA corrections",
+    "hero_stat4": "On-site inspections",
+    "hero_btn_exp": "View Experience",
+    "hero_btn_deals": "Deal Sheet",
+    "hero_btn_cv": "Download CV",
+    "hero_btn_email": "Email Me",
+    "about_lbl": "About",
+    "about_title": "The Edge",
+    "about_p1": "Supervisory-grade credit risk specialist with ECB secondment experience and a proven track record in on-site inspection of Significant Institutions under the <strong>Single Supervisory Mechanism (SSM)</strong>. <strong>16 inspections concluded</strong> — €282Bn+ in total assets reviewed across multiple EU jurisdictions.",
+    "about_p2": "I combine deep regulatory fluency — <strong>IFRS 9, Basel III/IV, IRB modelling, ECL quantification</strong> — with hands-on buy-side experience at Bankinter Gestión de Activos, where I monitored risk across an <strong>€8Bn AUM multi-asset portfolio</strong>.",
+    "about_p3": "Currently extending my regulatory frontier into <strong>digital asset supervision</strong>, leading the MiCAR authorization lifecycle for European CASPs, VASPs, and EMT issuers at the Bank of Portugal — bridging prudential <strong>CRD/CRR requirements</strong> with EU Regulation 2023/1114 (MiCAR) and DORA operational resilience standards.",
+    "about_p4": "Target: senior roles in <strong>Private Credit, Private Equity, Risk Management, Structured Finance, Portfolio Management, CRE, or Bloomberg/Quant Analytics</strong> at alternative lending platforms or asset management firms where regulatory depth, MiCAR expertise, and quantitative rigour are a competitive advantage.",
+    "abt_c1_t": "Regulatory Intelligence",
+    "abt_c1_d": "ECB-seconded inspector with SSM credentialing across Significant Institutions in multiple EU jurisdictions. €282Bn+ in total assets reviewed.",
+    "abt_c2_t": "Quantitative Rigour",
+    "abt_c2_d": "Python · R · SQL · Bloomberg BQuant. From AQR automation to VaR back-testing and IRB ECL calibration.",
+    "abt_c3_t": "Buy-Side Perspective",
+    "abt_c3_d": "One year as quantitative risk specialist managing credit &amp; liquidity monitoring across an €8Bn AUM multi-asset portfolio at Bankinter.",
+    "abt_c4_t": "Digital Asset Supervision",
+    "abt_c4_d": "MiCAR authorization architect for 4+ EU CASPs, VASPs, and EMT issuers. Bridging TradFi prudential frameworks (CRD/CRR) with EU Reg. 2023/1114 and DORA.",
+    "ban_title": "A track record built on rigorous analysis<br>and high-conviction insights.",
+    "ban_sub": "Select an area of expertise to dive directly into the timeline.",
+    "ban_b1": "Digital Assets (MiCAR)",
+    "ban_b2": "ECB Supervision",
+    "ban_b3": "Credit Risk Audits",
+    "ban_b4": "Asset Management",
+    "exp_lbl": "Career",
+    "exp_title": "Professional Experience",
+    "exp_1_c": "Bank of Portugal",
+    "exp_1_b": "MiCAR · Current",
+    "exp_1_d": "2026 – Present",
+    "exp_1_r": "Supervisor — MiCAR Authorization (CASP / VASP / EMT) · EU Reg. 2023/1114",
+    "exp_1_bull": "<li><strong>Authorization Lifecycle Architecture:</strong> Arbitrating end-to-end regulatory authorization for <strong>4+ CASP and VASP applicants</strong> under EU Reg. 2023/1114 — rigorously vetting documentation packages, governance structures, financial resilience, and business model viability against EBA/ESMA technical standards</li><li><strong>TradFi Transition &amp; CRD/CRR Bridging:</strong> Navigating the structural transition of legacy financial institutions (Banks, EMIs) to MiCAR-compliant crypto-asset service provision, mapping prudential <strong>CRD/CRR and DORA</strong> requirements onto emerging digital asset frameworks</li><li><strong>EMT / ART Authorization Pipeline:</strong> Scrutinizing liquidity reserve adequacy, capital floor compliance, and operational integrity for <strong>Electronic Money Token (EMT) and Asset-Referenced Token (ART)</strong> issuance applications, assessing systemic risk implications</li><li><strong>Cross-Border Supervisory Coordination:</strong> Collaborating with <strong>EBA and ESMA</strong> on Level 2 MiCAR regulatory technical standards, delegated acts, and supervisory convergence across EU competent authorities</li>",
+    "exp_1_l": "Key Frameworks",
+    "exp_2_c": "European Central Bank",
+    "exp_2_b": "ECB Secondment",
+    "exp_2_d": "Jan – Jun 2025",
+    "exp_2_r": "Credit Risk Inspector — JST-Embedded · €32Bn CRE Portfolio Focus",
+    "exp_2_bull": "<li>Spearheaded bottom-up AQR of a <strong>€4Bn CRE sub-portfolio</strong> (Offices, Logistics, Hospitality); identified structural misalignments between Stage 3/NPE backstop definitions and ECB AQR-Manual Phase II criteria</li><li>Engineered a proprietary <strong>Excel DSCR and exit cap rate stress model</strong>, quantifying a <strong>€25M provisioning deficiency</strong> stemming from uncaptured cap rate compression across the Income Producing Real Estate book</li><li>Arbitrated findings with Luxembourg SI Senior Management; established <strong>3 formal mandates</strong> compelling immediate ECL recalibration (PD, LGD, EAD parameters)</li><li>Contributed to an <strong>ECB-level IRB benchmark tool</strong> for PD/LGD calibration comparability across SSM institutions within multinational Joint Supervisory Teams</li>",
+    "exp_3_c": "Bank of Portugal",
+    "exp_3_b": "SSM · 2022–Present",
+    "exp_3_d": "2022 – Present",
+    "exp_3_r": "On-Site Inspector — Credit Risk (SSM) · Equiv. Senior Credit Analyst",
+    "exp_3_bull": "<li><strong>RWA Optimization &amp; IRB/SA Audit:</strong> Audited Risk-Weighted Amounts for an IRB portfolio under CRR II at a <strong>€102Bn SI</strong>; exposed critical segmentation errors, culminating in a mandatory <strong>€210M upward RWA correction</strong>. Extended to 5 LSIs (€27Bn), forcing a <strong>10% SA-RWA increase</strong> via collateral reclassification</li><li><strong>ECL Recalibration &amp; Provisioning Uplift:</strong> Engineered granular IFRS 9 reviews isolating systematic ECL underestimation. Identified <strong>€40M+</strong> in under-provisioned SME/CRE exposures; demanded <strong>€28M</strong> in added provisions due to non-compliant collateral haircuts and aggregated economic group exposures</li><li><strong>Governance &amp; RAF Arbitration:</strong> Mitigated structural vulnerabilities at a €45Bn institution's credit granting and Risk Appetite Framework; mandated comprehensive overhauls to syndicated lending, CRE-refinancing, and EBA GL alignment</li><li><strong>Behavioral Maturity Modelling:</strong> Deconstructed BM models on a <strong>€46Bn universal bank</strong> portfolio; proven fixed horizons systematically understated revolving product maturity — driving algorithmic recalibration and a <strong>€6M provisioning increase</strong></li>",
+    "exp_4_c": "Bankinter Gestión de Activos",
+    "exp_4_d": "2021 – 2022",
+    "exp_4_r": "Analyst — Asset Management · Quantitative Risk",
+    "exp_4_bull": "<li>Fundamental equity valuations (DCF &amp; Piotroski F-Score) across <strong>€8Bn AUM</strong> multi-asset macro portfolio, systematically bridging fundamental resilience and market pricing for US-Technology long positions</li><li>Engineered automated <strong>LCR / NSFR / HQLA</strong> risk monitoring suite in Excel + BQuant; real-time liquidity surveillance across the full portfolio</li><li>Architected <strong>VaR back-testing framework</strong>; stress-tested under GFC, COVID-19, and 2022 Rate Shock scenarios. Identified selective duration risk under-exposure</li><li><strong>SFDR Art. 6/8/9 alignment</strong> for 5 Pension Fund mandates (€8Bn AUM), integrating qualitative ESG scoring alongside MiFID II reporting consistency</li>",
+    "exp_5_c": "DINÂMIA'CET – ISCTE",
+    "exp_5_d": "2020",
+    "exp_5_r": "Research Scholar — Economic Analysis &amp; Machine Learning",
+    "exp_5_bull": "<li>Propensity score matching + Neural Networks / Random Forests / LASSO to isolate the causal financial impact of Portugal 2020 SME incentive programs on business growth. Achieved <strong>97% predictive accuracy</strong>, shaping policy-grade capital allocation strategy</li>",
+    "exp_6_c": "OLAE — Lusophone Observatory",
+    "exp_6_d": "2018 – 2020",
+    "exp_6_r": "Working Student — Economic Consultant",
+    "exp_6_bull": "<li>Authored Portugal–Taiwan bilateral investment guide; engineered business plans for <strong>4 approved multilateral financing projects</strong> (African Development Bank / World Bank) via feasibility analyses and ROI projections</li>",
+    "deal_lbl": "Deal Sheet",
+    "deal_title": "Select Engagements",
+    "deal_sub": "Anonymised in compliance with SSM supervisory confidentiality obligations.",
+    "dc1_b": "Credit Risk · IFRS 9 · ECL",
+    "dc1_t": "ECL Recalibration — Under-Provisioned SME/CRE Book",
+    "dc1_d": "Engineered granular IFRS 9-compliant ECL reviews across SME and CRE portfolios at multiple SIs. Isolated systematic PD/LGD underestimation; forced full ECL methodology recalibration and mandatory provisioning uplifts across economic group aggregated exposures.",
+    "dc1_m1": "Under-provisioned exposures",
+    "dc1_m2": "Provisions demanded",
+    "deal_btn_m": "Methodology",
+    "deal_lbl_a": "Analytical Framework",
+    "dc1_a": "<li>IFRS 9 Stage 1/2/3 staging trigger analysis via <strong>SICR criteria</strong> — assessed PD migration against portfolio benchmarks and qualitative backstops (EBA GL on NPE management)</li><li>PD calibration: Through-The-Cycle (TTC) vs Point-In-Time (PIT) comparison per <strong>EBA RTS on IRB</strong> (EBA/RTS/2016/03); identified systematic TTC over-smoothing masking cyclical deterioration</li><li>LGD haircut benchmarking per <strong>CRR Art. 230/228</strong>; challenged non-compliant collateral valuations and aggregated economic group exposure treatment (Art. 390 CRR)</li>",
+    "deal_lbl_o": "Output",
+    "dc1_o": "<li>3 formal supervisory findings delivered. Full ECL model recalibration directive issued. Independent model review mandated within 90 days</li>",
+    "dc2_b": "ECB · Real Estate · AQR · JST",
+    "dc2_t": "CRE Forensic AQR — ECB Joint Supervisory Team",
+    "dc2_d": "Spearheaded a bottom-up Asset Quality Review of a €4Bn CRE sub-portfolio (Offices, Logistics, Hospitality) within an ECB JST. Engineered a proprietary DSCR and exit cap rate stress model, exposing a €25M provisioning deficiency from uncaptured cap rate compression.",
+    "dc2_m1": "Provisioning deficiency",
+    "dc2_m2": "CRE portfolio scope",
+    "deal_btn_m2": "Methodology",
+    "deal_lbl_a2": "Analytical Framework",
+    "dc2_a": "<li>File-by-file AQR per <strong>ECB AQR Manual Phase II</strong>; assessed individual borrower credit files against NPE backstop definitions (Art. 47a CRR) and Stage 3 classification criteria</li><li>Proprietary <strong>Excel DSCR stress model</strong>: base / adverse / severely adverse scenarios with exit cap rate sensitivity (+75bps / +150bps compression). Rental income haircuts applied by asset class (Office: –20%, Hospitality: –35%)</li><li>NPE backstop assessment and forbearance classification per <strong>EBA ITS on NPE supervisory reporting</strong>; identified misclassified Stage 2 exposures requiring Stage 3 reclassification</li>",
+    "deal_lbl_o2": "Output",
+    "dc2_o": "<li>€25M provisioning deficiency quantified and escalated to JST. 3 binding mandates to SI senior management. Formal remediation deadline set within supervisory letter</li>",
+    "dc3_b": "Basel III/IV · RWA · IRB · CRR II",
+    "dc3_t": "IRB Capital Correction — €102Bn Significant Institution",
+    "dc3_d": "Audited Risk-Weighted Amounts for an IRB portfolio under CRR II at a €102Bn SI. Exposed critical segmentation errors culminating in a mandatory €210M upward RWA correction. Extended to 5 LSIs (€27Bn), forcing a 10% SA-RWA increase via collateral reclassification.",
+    "dc3_m1": "RWA correction enforced",
+    "dc3_m2": "SI portfolio scope",
+    "deal_btn_m3": "Methodology",
+    "deal_lbl_a3": "Analytical Framework",
+    "dc3_a": "<li>IRB model benchmarking under <strong>EBA RTS on IRB</strong> (EBA/RTS/2016/03); portfolio segmentation analysis (retail vs corporate exposure classes per <strong>CRR Art. 147</strong>) — identified incorrect retail SME classification inflating capital relief</li><li>SA portfolio review: collateral reclassification per <strong>CRR II Art. 230/199</strong>; challenged LTV-based risk weight floors and insufficient collateral documentation across 5 LSIs (€27Bn combined exposure)</li><li>RWA sensitivity analysis across PD, LGD, and EAD parameter perturbations; benchmarked against EBA supervisory outlier data (annual IRB survey)</li>",
+    "deal_lbl_o3": "Output",
+    "dc3_o": "<li>Mandatory €210M upward RWA correction at €102Bn SI. 10% SA-RWA increase across 5 LSIs. Formal remediation plan and independent model validation required within 12 months</li>",
+    "dc4_b": "Digital Assets · MiCAR · CASP · VASP",
+    "dc4_t": "MiCAR Authorization Pipeline — EU Crypto-Native &amp; TradFi Firms",
+    "dc4_d": "Arbitrating end-to-end MiCAR regulatory authorization for 4+ CASP and VASP applicants across the EU. Vetting governance structures, financial resilience, and business model viability under EU Reg. 2023/1114. Navigating complex TradFi institution transitions bridging CRD/CRR with MiCAR and DORA compliance.",
+    "dc4_m1": "CASPs/VASPs supervised",
+    "dc4_m2": "EMT/ART frameworks assessed",
+    "deal_btn_p": "Process",
+    "deal_lbl_p": "Authorization Process (6-Phase)",
+    "dc4_a": "<li><strong>Phase 1 — Completeness:</strong> Application package review per <strong>MiCAR Art. 62/Art. 16</strong> (CASP/EMT). EBA RTS on information requirements verification</li><li><strong>Phase 2 — Business Model:</strong> Viability assessment of crypto-asset service scope (custody, exchange, transfer, advice, portfolio management per Art. 3 MiCAR Title II)</li><li><strong>Phase 3 — Governance:</strong> Management body fitness &amp; propriety checks; conflicts of interest framework; shareholder structure review per <strong>MiCAR Art. 68</strong></li><li><strong>Phase 4 — Financial Resilience:</strong> Own funds floor verification (€15K–€150K per CASP class); reserve asset adequacy for EMT issuers per <strong>MiCAR Art. 36</strong></li><li><strong>Phase 5 — DORA (ICT):</strong> ICT risk management framework mapping per <strong>DORA Art. 5–16</strong>; third-party provider dependency assessment</li><li><strong>Phase 6 — Decision:</strong> Authorization, conditional authorization, or refusal recommendation to competent authority. Conditions/limitations imposed on 2 applicants</li>",
+    "dc5_b": "Quantitative · Behavioral Risk · IFRS 9",
+    "dc5_t": "Behavioral Maturity Recalibration — €46Bn Universal Bank",
+    "dc5_d": "Deconstructed behavioral maturity models on revolving credit products at a €46Bn universal bank. Demonstrated that fixed maturity horizons systematically understated actual product maturity, requiring a full algorithmic recalibration and driving a material ECL provisioning increase.",
+    "dc5_m1": "Provisioning increase",
+    "dc5_m2": "Universal bank portfolio",
+    "deal_btn_m4": "Methodology",
+    "deal_lbl_a4": "Analytical Framework",
+    "dc5_a": "<li>Fixed vs behavioral maturity assumption analysis per <strong>EBA GL on LOM (EBA/GL/2017/06)</strong>; replicated bank's internal BM model using historical repayment data across revolving credit card and overdraft portfolios</li><li>Demonstrated that fixed 12-month maturity horizons understated <strong>average life (AL)</strong> by 18–24 months on revolving products; calculated impact on Stage 2 ECL present value adjustment</li><li>Prepayment rate and utilization pattern analysis using vintage data; proposed <strong>algorithm-based behavioral horizon</strong> reflecting actual observed repayment behavior per product segment</li>",
+    "deal_lbl_o4": "Output",
+    "dc5_o": "<li>€6M ECL provisioning increase. Mandatory algorithmic recalibration with new vintage-based behavioral maturity assumptions. Bank required to remediate within next ICAAP submission</li>",
+    "dc6_b": "Quantitative · Asset Management · ESG",
+    "dc6_t": "VaR Back-Testing &amp; Liquidity Suite — €8Bn Multi-Asset Portfolio",
+    "dc6_d": "Architected a comprehensive VaR back-testing engine and automated LCR/NSFR/HQLA monitoring suite across €8Bn AUM at Bankinter. Stress-tested under GFC, COVID-19, and 2022 Rate Shock scenarios. Integrated SFDR Art. 6/8/9 alignment for 5 Pension Fund mandates.",
+    "dc6_m1": "AUM stress-tested",
+    "dc6_m2": "Historical crisis scenarios",
+    "deal_btn_m5": "Methodology",
+    "deal_lbl_a5": "Analytical Framework",
+    "dc6_a": "<li><strong>VaR Engine:</strong> Historical simulation VaR (99% confidence, 10-day horizon) per Basel III market risk standards; <strong>Kupiec POF test</strong> and Christoffersen independence test for back-testing validation; exception tracking against Basel traffic light thresholds</li><li><strong>Liquidity Suite:</strong> Automated real-time Excel + <strong>Bloomberg BQuant</strong> dashboard tracking LCR (≥100%), HQLA Level 1/2A/2B composition, and NSFR across the full portfolio; flagged structural liquidity mismatches intraday</li><li><strong>Stress Testing:</strong> Historical scenario replay (GFC 2008, COVID-19 March 2020, 2022 Rate Shock); identified selective duration risk under-exposure in fixed income sleeve ahead of 2022 ECB hiking cycle</li>",
+    "deal_lbl_o5": "Output",
+    "dc6_o": "<li>Proactive duration risk repositioning prior to 2022 Rate Shock. Automated monitoring reduced manual LCR reporting effort by ~20%. SFDR Art. 6/8/9 alignment across 5 Pension Fund mandates</li>",
+    "fb_l1": "On-Site Inspections",
+    "fb_l2": "Assets Audited",
+    "fb_l3": "Provisioning Impact",
+    "fb_l4": "RWA Corrections",
+    "fb_l5": "MiCAR CASPs Supervised",
+    "edu_lbl": "Education",
+    "edu_title": "Academic Background",
+    "tr_lbl": "Open To",
+    "tr_title": "Target Opportunities",
+    "tr_c1_t": "Private Credit",
+    "tr_c1_d": "Targeting direct lending, unitranche, and senior secured underwriting roles at private credit funds, CLO managers, and direct lending platforms — translating supervisory-grade ECL modelling, IFRS 9 PD/LGD calibration, and 16-inspection-level borrower forensics directly into deal conviction and portfolio construction.",
+    "tr_c2_t": "Private Equity",
+    "tr_c2_d": "Open to credit and risk functions at PE firms, including LBO deal support, portfolio company financial risk oversight, and due diligence roles — combining supervisory forensics (IRB validation, CRE AQR at €282Bn+ scale) with financial modelling and capital structure assessment to sharpen underwriting edge.",
+    "tr_c3_t": "Risk Management",
+    "tr_c3_d": "Seeking credit risk management, enterprise risk, and model risk validation roles at banks, insurance groups, and multi-asset managers — leveraging 16 SSM on-site inspections, IFRS 9 ECL modelling, and IRB validation experience against the full EBA/ECB regulatory framework to strengthen institutional risk culture.",
+    "tr_c4_t": "Structured Finance",
+    "tr_c4_d": "Targeting structured credit, CLO/ABS analysis, RMBS/CMBS portfolio work, and leveraged finance underwriting at alternative asset managers and investment banks — where IFRS 9, CRE/IPRE forensics, and IRB modelling depth translate directly into origination alpha and portfolio risk optimisation.",
+    "tr_c5_t": "Portfolio Management",
+    "tr_c5_d": "Seeking credit portfolio management, investment risk officer, and buy-side risk management mandates at asset managers, credit funds, and pension funds — combining €8Bn AUM operational experience with institutional-grade risk governance, SFDR alignment, and Bloomberg analytics expertise.",
+    "tr_c6_t": "CRE Specialist",
+    "tr_c6_d": "Targeting dedicated CRE/IPRE credit specialist, real estate debt fund analyst, and commercial real estate risk roles — backed by direct ECB JST experience running DSCR stress models across €4Bn CRE sub-portfolios (offices, logistics, hospitality) with exit cap rate sensitivity and Phase II AQR forensics.",
+    "tr_c7_t": "Bloomberg &amp; Quant Analytics",
+    "tr_c7_d": "Open to quantitative analytics, risk intelligence, and data-driven advisory roles — including Bloomberg Intelligence, sell-side risk analytics, and RegTech platforms — where Python automation, BQL/BQuant expertise, and MiCAR supervisory knowledge command a premium at the data-analytics frontier of institutional finance.",
+    "ct_lbl": "Contact",
+    "ct_title": "Let's Connect",
+    "ct_sub": "Open to senior roles in Private Credit, Private Equity, Risk Management, Structured Finance, Portfolio Management, CRE, and Bloomberg Analytics across Europe.",
+    "skill_lbl": "Technical Stack",
+    "skill_title": "Capabilities",
+    "skill_b1": "Programming",
+    "skill_b2": "Finance Platforms",
+    "skill_b3": "Digital Assets & Crypto",
+    "skill_b4": "Financial Modelling",
+    "skill_b5": "Regulatory Domain",
+    "skill_lang": "Languages",
+    "lang_pt": "Portuguese",
+    "lang_nat": "Native",
+    "lang_en": "English",
+    "lang_c2": "C2 Bilingual",
+    "lang_es": "Spanish",
+    "lang_b2": "C1 Professional",
+    "footer_cpy": "© 2026 João Pedro Oliveira · Lisbon, Portugal"
+  },
+  "pt": {
+    "nav_home": "Início",
+    "nav_about": "Sobre",
+    "nav_exp": "Experiência",
+    "nav_deals": "Transações",
+    "nav_skills": "Competências",
+    "nav_edu": "Educação",
+    "nav_roles": "Cargos Alvo",
+    "nav_contact": "Contacto",
+    "hero_eyebrow": "Risco de Crédito · Crédito Privado · Autorização MiCAR · Gestão de Ativos",
+    "hero_tagline": "Unindo <em>inteligência de risco de crédito de nível de supervisão</em><br>\n        com <em>subscrição de crédito privado</em> de alta convicção —<br>\n        expandindo agora a fronteira regulatória para a<br>\n        <span class=\"micar-em\">autorização de ativos digitais sob a MiCAR</span>.",
+    "hero_stat1": "Ativos auditados",
+    "hero_stat2": "Impacto no provisionamento",
+    "hero_stat3": "Correções de RWA",
+    "hero_stat4": "Inspeções in loco",
+    "hero_btn_exp": "Ver Experiência",
+    "hero_btn_deals": "Transações",
+    "hero_btn_cv": "Descarregar CV",
+    "hero_btn_email": "Enviar Email",
+    "about_lbl": "Sobre",
+    "about_title": "O Ponto Forte",
+    "about_p1": "Especialista em risco de crédito a nível de supervisão com experiência de destacamento no BCE e um historial comprovado na inspeção local de Instituições Significativas ao abrigo do <strong>Mecanismo Único de Supervisão (MUS)</strong>. <strong>16 inspeções concluídas</strong> — mais de 282 mil milhões de euros em ativos totais revistos em várias jurisdições da UE.",
+    "about_p2": "Combino uma profunda fluência regulatória — <strong>IFRS 9, Basileia III/IV, modelação IRB, quantificação de perdas de crédito esperadas (ECL)</strong> — com experiência prática de buy-side na Bankinter Gestión de Activos, onde monitorizei o risco numa <strong>carteira multiativos de 8 mil milhões de euros</strong>.",
+    "about_p3": "Atualmente a expandir a minha fronteira regulatória para a <strong>supervisão de ativos digitais</strong>, liderando o ciclo de vida de autorização MiCAR para CASPs, VASPs e emissores de EMT europeus no Banco de Portugal — ligando os requisitos prudenciais de <strong>CRD/CRR</strong> à Regulamentação da UE 2023/1114 (MiCAR) e às normas de resiliência operacional DORA.",
+    "about_p4": "Alvo: cargos seniores em <strong>Crédito Privado, Private Equity, Gestão de Risco, Finanças Estruturadas, Gestão de Carteiras, Imobiliário Comercial (CRE) ou Análise Quantitativa/Bloomberg</strong> em plataformas de financiamento alternativo ou empresas de gestão de ativos onde a profundidade regulatória, a especialização em MiCAR e o rigor quantitativo representam uma vantagem competitiva.",
+    "abt_c1_t": "Inteligência Regulatória",
+    "abt_c1_d": "Inspetor destacado no BCE com credenciação MUS em Instituições Significativas em múltiplas jurisdições da UE. >€282 mil milhões em ativos analisados.",
+    "abt_c2_t": "Rigor Quantitativo",
+    "abt_c2_d": "Python · R · SQL · Bloomberg BQuant. Desde automação AQR até back-testing de VaR e calibração de IRB ECL.",
+    "abt_c3_t": "Perspetiva de Buy-Side",
+    "abt_c3_d": "Um ano como especialista em risco quantitativo realizando a monitorização de liquidez e risco numa carteira multiativos de €8 mil milhões.",
+    "abt_c4_t": "Supervisão de Ativos Digitais",
+    "abt_c4_d": "Arquiteto da autorização MiCAR para mais de 4 CASPs, VASPs e emissores de EMT. Ligação de frameworks TradFi (CRD/CRR) à UE Reg. 2023/1114 e DORA.",
+    "ban_title": "Um historial construído numa análise rigorosa<br>e convicção em insights.",
+    "ban_sub": "Selecione uma área de conhecimento para ir diretamente para a linha do tempo.",
+    "ban_b1": "Ativos Digitais (MiCAR)",
+    "ban_b2": "Supervisão do BCE",
+    "ban_b3": "Auditorias de Risco de Crédito",
+    "ban_b4": "Gestão de Ativos",
+    "exp_lbl": "Carreira",
+    "exp_title": "Experiência Profissional",
+    "exp_1_c": "Banco de Portugal",
+    "exp_1_b": "MiCAR · Atual",
+    "exp_1_d": "2026 – Presente",
+    "exp_1_r": "Supervisor — Autorização MiCAR (CASP / VASP / EMT) · Reg. UE 2023/1114",
+    "exp_1_bull": "<li><strong>Arquitetura do Ciclo de Autorização:</strong> Arbitragem regulatória de <strong>>4 requerentes CASP e VASP</strong> sob a Reg. UE 2023/1114 — avaliação rigorosa de pacotes de documentação, estruturas de governação, resiliência financeira e modelos de negócio contra normas técnicas da EBA/ESMA.</li><li><strong>Transição TradFi e CRD/CRR:</strong> Navegação na transição estrutural de instituições financeiras (Bancos, EMI) para o provisionamento de criptoativos compatível com a MiCAR, mapeando os requisitos prudenciais <strong>CRD/CRR e DORA</strong> em molduras de ativos digitais emergentes.</li><li><strong>Pipeline de Autorização EMT / ART:</strong> Análise da adequação das reservas de liquidez, cumprimento de fundos próprios e integridade operacional para aplicações de emissão de <strong>Tokens de Dinheiro Eletrónico (EMT) e Tokens Referenciados a Ativos (ART)</strong>, avaliando impacto no risco sistémico.</li><li><strong>Coordenação Supervisora Transfronteiriça:</strong> Colaboração com <strong>EBA e ESMA</strong> em normas técnicas regulatórias MiCAR Nível 2, atos delegados e convergência supervisora na UE.</li>",
+    "exp_1_l": "Enquadramentos Chave",
+    "exp_2_c": "Banco Central Europeu (BCE)",
+    "exp_2_b": "Destacamento BCE",
+    "exp_2_d": "Jan – Jun 2025",
+    "exp_2_r": "Inspetor de Risco de Crédito — Equipas Conjuntas (JST) · Foco CRE €32Bn",
+    "exp_2_bull": "<li>Liderou a avaliação da qualidade dos ativos (AQR) de um <strong>subportefólio CRE de €4Bn</strong> (Escritórios, Logística, Retalho); identificou desalinhamentos estruturais entre definições de Stage 3/NPE e o Manual AQR do BCE.</li><li>Desenvolveu um <strong>modelo proprietário no Excel de stress de DSCR e cap rate de saída</strong>, quantificando um <strong>défice de provisões de €25M</strong> derivado da não captura de compressões de cap rate.</li><li>Arbitrou conclusões perante a Gestão de Topo de uma Instituição Significativa luxemburguesa, estabelecendo <strong>3 mandatos formais</strong> forçando recalibração de ECL.</li><li>Contribuiu para uma <strong>ferramenta de benchmark IRB a nível do BCE</strong> para a comparabilidade de calibração de PD/LGD nas instituições do MUS.</li>",
+    "exp_3_c": "Banco de Portugal",
+    "exp_3_b": "MUS · 2022–Presente",
+    "exp_3_d": "2022 – Presente",
+    "exp_3_r": "Inspetor On-Site — Risco de Crédito (MUS) · Equiv. Analista de Crédito Sénior",
+    "exp_3_bull": "<li><strong>Otimização RWA e Auditoria IRB/SA:</strong> Auditou montantes ponderados pelo risco (RWA) num portefólio IRB sob a CRR II numa <strong>Instituição Significativa de €102Bn</strong>; expôs erros críticos de segmentação, resultando numa <strong>correção ascendente mandatória de €210M em RWA</strong>. Estendido a 5 LSI, forçando um <strong>aumento de 10% no SA-RWA</strong> por reclassificação de colateral.</li><li><strong>Recalibração ECL e Aumento de Provisões:</strong> Realizou revisões granulares IFRS 9 isolando subestimativa sistemática de ECL. Identificou <strong>€40M+</strong> em exposições PME/CRE sub-provisionadas; exigiu <strong>€28M</strong> em provisões adicionais por cortes não conformes em colateral.</li><li><strong>Arbitragem de Governação &amp; RAF:</strong> Mitigou vulnerabilidades estruturais no framework de Risco (RAF) numa instituição de €45Bn; ordenou reestruturações completas a crédito sindicado, refinanciamento CRE e alinhamento às diretrizes da EBA.</li><li><strong>Modelação Comportamental (Maturity):</strong> Desconstruiu modelos de maturidade comportamental (BM) num banco universal de <strong>€46Bn</strong>; demonstrou que horizontes fixos subestimavam sistematicamente a maturidade real do crédito revolving — conduzindo a aumento de <strong>€6M em provisões</strong>.</li>",
+    "exp_4_c": "Bankinter Gestión de Activos",
+    "exp_4_d": "2021 – 2022",
+    "exp_4_r": "Analista — Gestão de Ativos · Risco Quantitativo",
+    "exp_4_bull": "<li>Avaliações fundamentais de ações (DCF e Piotroski F-Score) num portefólio multi-ativos de <strong>€8Bn</strong>, ligando resiliência fundamental à fixação de preços de mercado (ex. longo em Tecnologia EUA).</li><li>Desenvolveu ferramenta automatizada de monitorização de risco de liquidez <strong>(LCR / NSFR / HQLA)</strong> em Excel + BQuant; vigilância de liquidez em tempo real nas carteiras.</li><li>Arquitetou um quadro de <strong>back-testing de VaR</strong>; realizou stress-tests com cenários da Crise Financeira (GFC), COVID-19 e Choque de Taxas de 2022. Identificou subexposição de risco de duração.</li><li><strong>Alinhamento SFDR Art. 6/8/9</strong> para 5 mandatos de Fundos de Pensões (€8Bn sob gestão), integrando pontuação ESG qualitativa com relatórios MiFID II.</li>",
+    "exp_5_c": "DINÂMIA'CET – ISCTE",
+    "exp_5_d": "2020",
+    "exp_5_r": "Bolseiro de Investigação — Análise Económica e Machine Learning",
+    "exp_5_bull": "<li>Utilizou matching de score de propensão + Redes Neuronais / Random Forests / LASSO para isolar o impacto financeiro dos programas de incentivo PME do Portugal 2020. Atingiu <strong>97% de precisão preditiva</strong>, moldando a alocação de capitais de política pública.</li>",
+    "exp_6_c": "OLAE — Observatório Lusófono",
+    "exp_6_d": "2018 – 2020",
+    "exp_6_r": "Estudante Trabalhador — Consultor Económico",
+    "exp_6_bull": "<li>Criou planos de negócio para <strong>4 projetos de financiamento multilateral aprovados</strong> (Banco Africano de Desenvolvimento / Banco Mundial) via análise de viabilidade e projeções de ROI.</li>",
+    "deal_lbl": "Transações",
+    "deal_title": "Ações de Destaque",
+    "deal_sub": "Anonimizadas em conformidade com as obrigações de confidencialidade de supervisão do MUS.",
+    "dc1_b": "Risco de Crédito · IFRS 9 · ECL",
+    "dc1_t": "Recalibração ECL — Carteira CRE/PME Sub-provisionada",
+    "dc1_d": "Desenvolvi revisões granulares de ECL conformes com a IFRS 9 em portefólios PME/CRE. Isolei sistemática subestimativa de PD/LGD; forcei recalibração total da metodologia ECL e aumentos de provisionamento nas exposições de grupos económicos.",
+    "dc1_m1": "Exposições sub-provisionadas",
+    "dc1_m2": "Provisões exigidas",
+    "deal_btn_m": "Metodologia",
+    "deal_lbl_a": "Framework Analítica",
+    "dc1_a": "<li>Análise de gatilhos Stage 1/2/3 via <strong>critérios SICR</strong> — avaliação da migração de PD contra benchmarks qualitativos (EBA GL sobre gestão de NPE).</li><li>Calibração de PD: Comparação Through-The-Cycle (TTC) vs Point-In-Time (PIT) segundo <strong>EBA RTS sobre IRB</strong>; identificação de sobre-suavização sistemática TTC mascarando deterioração cíclica.</li><li>Benchmarking de haircuts de LGD por <strong>CRR Art. 230/228</strong>; contestou avaliações colaterais incorretas em exposições agregadas de grupos económicos (Art. 390 CRR).</li>",
+    "deal_lbl_o": "Saída",
+    "dc1_o": "<li>3 conclusões de supervisão formais. Diretiva de recalibração completa da ECL emitida. Revisão independente do modelo exigida em 90 dias.</li>",
+    "dc2_b": "BCE · Imobiliário · AQR · JST",
+    "dc2_t": "AQR Forense CRE — Equipa Conjunta de Supervisão do BCE",
+    "dc2_d": "Liderou a Avaliação de Qualidade de Ativos (AQR) de um sub-portefólio CRE de €4Bn num BCE JST. Elaborou modelo proprietário de stress de DSCR e cap rate de saída, expondo um défice de provisionamento de €25M.",
+    "dc2_m1": "Défice de provisões",
+    "dc2_m2": "Portefólio CRE em foco",
+    "deal_btn_m2": "Metodologia",
+    "deal_lbl_a2": "Framework Analítica",
+    "dc2_a": "<li>AQR arquivo a arquivo segundo o <strong>Manual Fase II AQR do BCE</strong>; avaliou dossiês de crédito à luz de backstops NPE (Art. 47a CRR).</li><li><strong>Modelo de stress DSCR</strong> em Excel: cenários base/adverso/severo com sensibilidade de cap rate de saída (+75bps/+150bps). Haircuts nas rendas (Escritórios: –20%, Retalho: –35%).</li><li>Análise de forbearances por <strong>EBA ITS</strong>; reclassificou exposições de Stage 2 para Stage 3.</li>",
+    "deal_lbl_o2": "Saída",
+    "dc2_o": "<li>Quantificado défice de €25M. 3 mandatos vinculativos emitidos à gestão de topo de SI luxemburguês.</li>",
+    "dc3_b": "Basileia III/IV · RWA · IRB · CRR II",
+    "dc3_t": "Correção de Capital IRB — Instituição Significativa €102Bn",
+    "dc3_d": "Auditou ativos ponderados pelo risco sob CRR II (IRB). Expôs erros críticos de segmentação que culminaram numa correção ascendente de RWA de €210M. Estendido a 5 LSIs, forçando um aumento de 10% de RWA (Standard).",
+    "dc3_m1": "Correção RWA aplicada",
+    "dc3_m2": "Âmbito do portefólio",
+    "deal_btn_m3": "Metodologia",
+    "deal_lbl_a3": "Framework Analítica",
+    "dc3_a": "<li>Benchmarking de modelo IRB via <strong>EBA RTS em IRB</strong>; análise de segmentação do portefólio — classificações erradas geraram alívio incorreto de capital.</li><li>Revisão do portefólio SA: reclassificação segundo <strong>CRR II Art. 230/199</strong>; contestação do documentação colateral deficiente e floors RWA em 5 LSI cumulativos de €27Bn.</li><li>Análises de sensibilidade RWA em PD, LGD e EAD, contrastadas contra dados EBA outlier.</li>",
+    "deal_lbl_o3": "Saída",
+    "dc3_o": "<li>Correção obrigatória de €210M. Aumento de 10% no SA-RWA. Plano de remediação imposto a 12 meses.</li>",
+    "dc4_b": "Ativos Digitais · MiCAR · CASP · VASP",
+    "dc4_t": "Pipeline Autorização MiCAR — Empresas Cripto da UE",
+    "dc4_d": "Arbitragem da autorização end-to-end sob MiCAR para 4+ CASPs e VASPs. Avaliação de estruturas de governação, estabilidade financeira e modelos de negócio conforme o Reg. 2023/1114. Pontes entre TradFi (CRD/CRR), MiCAR e DORA.",
+    "dc4_m1": "CASPs/VASPs supervisionados",
+    "dc4_m2": "Estruturas EMT/ART",
+    "deal_btn_p": "Processo",
+    "deal_lbl_p": "Processo de Autorização",
+    "dc4_a": "<li><strong>Fase 1 — Integralidade:</strong> Revisão ao pacote via <strong>MiCAR Art. 62/Art. 16</strong>.</li><li><strong>Fase 2 — Business Model:</strong> Avaliação das linhas de negócio de custódia, exchange e transferências (Art. 3).</li><li><strong>Fase 3 — Governance:</strong> Testes de idoneidade à gerência; conflitos de interesse e fit-and-proper via Art. 68.</li><li><strong>Fase 4 — Resiliência Financeira:</strong> Limites mínimos de capital (€15K-€150K); garantia do ativo de reserva (Art. 36) para emissão EMT/ART.</li><li><strong>Fase 5 — DORA (TIC):</strong> Adequação das matrizes de gestão de riscos tecnológicos via Art. 5-16.</li><li><strong>Fase 6 — Decisão:</strong> Recomendações de aprovação (ou denegação) com eventuais condições de sub-limite estrito anexadas.</li>",
+    "dc5_b": "Quantitativo · Risco Comportamental · IFRS 9",
+    "dc5_t": "Recalibração de Modelos Comportamentais — Banco Universal €46Bn",
+    "dc5_d": "Desconstrução de modelos maturidade em produtos rotativos de crédito (revolving) com horizontes fixos que subestimavam riscos. Recalibração do algoritmo gerou um aumento substancial da provisão ECL.",
+    "dc5_m1": "Aumento na Provisão",
+    "dc5_m2": "Portefólio do banco",
+    "deal_btn_m4": "Metodologia",
+    "deal_lbl_a4": "Framework Analítica",
+    "dc5_a": "<li>Análise de pressupostos temporais via <strong>EBA GL em LOM</strong>. Reconstrução lógica recorrendo a históricos de pagamentos.</li><li>O limite fixo de 12 meses atenuava o <strong>Average Life (AL)</strong> por 18 a 24 meses; reajuste do valor presente (Stage 2 ECL).</li><li>Recalibração orientada com algoritmos de ML no histórico da vintage (prepagamentos/utilização cumulativa).</li>",
+    "deal_lbl_o4": "Saída",
+    "dc5_o": "<li>Injeção provisória de €6M em ECL. Nova versão imposta para reporte direto à supervisão via próximo modelo ICAAP.</li>",
+    "dc6_b": "Quantitativo · Gestão de Ativos · ESG",
+    "dc6_t": "Back-testing de VaR &amp; Suite Liquidez — Portefólio Multi-Ativos €8Bn",
+    "dc6_d": "Painel abrangente de acompanhamento automatizado ao longo de €8Bn (AUM) usando LCR/NSFR/HQLA na Bankinter. Alinhamento a Fundos Pensões e Testes de Stress sob as crises de juros 2022 e coronavírus.",
+    "dc6_m1": "AUM Modelado",
+    "dc6_m2": "Cenários de Crise Historicos",
+    "deal_btn_m5": "Metodologia",
+    "deal_lbl_a5": "Framework Analítica",
+    "dc6_a": "<li><strong>VaR Automático:</strong> Simulação Histórica (99%, 10d horizon); testes <strong>Kupiec POF / Christoffersen</strong>; limites tricolores de Basel.</li><li><strong>Monitor de Liquidez:</strong> Via API <strong>Bloomberg BQuant / BQL</strong> para excel, avaliando NSFR e subconjuntos diários do rácio de liquidez (HQLA Level 1 vs 2B).</li><li><strong>Stress Testing Avançado:</strong> Reprojetou posições e duração temporal da carteira com foco na reducción de la duración previamente à subida del BCE.</li>",
+    "deal_lbl_o5": "Saída",
+    "dc6_o": "<li>Menos impacto na curva de duração frente aos juros do euro. Relatório manual decresceu em 20%. ESG Artigo 6/8/9 cumprido sob SFDR.</li>",
+    "fb_l1": "Inspeções On-Site",
+    "fb_l2": "Ativos Auditados",
+    "fb_l3": "Impacto em Provisões",
+    "fb_l4": "Correções de RWA",
+    "fb_l5": "CASPs MiCAR Liderados",
+    "edu_lbl": "Educação",
+    "edu_title": "Percurso Académico",
+    "tr_lbl": "Propostas Alvo",
+    "tr_title": "Oportunidades em Aberto",
+    "tr_c1_t": "Crédito Privado",
+    "tr_c1_d": "Oportunidades de crédito direto (direct lending), unitranche, e dívida sénior no lado da originação - aportando rigor analítico em calibração de IFRS 9 e avaliações institucionais de risco provenientes da inspecção directa no BCE.",
+    "tr_c2_t": "Private Equity",
+    "tr_c2_d": "Disponível para risco macro financeiro e apoio a aquisições alavancadas (LBO). O historial intensivo em Due Diligences corporativas sob regulação rigorosa fomenta análises LBO detalhadas à resiliência dos balanços.",
+    "tr_c3_t": "Gestão de Risco",
+    "tr_c3_d": "Visão técnica abrangente validando IRB, IFRS 9 e ICAAP focados para direções institucionais, protegendo o rácio do balanço contra as auditorias pesadas da EBA sobre empresas multissectoriais.",
+    "tr_c4_t": "Finanças Estruturadas",
+    "tr_c4_d": "Projetos de engenharia ABS/CLO, sindicatos imobiliários e obrigações garantidas em Bancos de Investimento. A experiência em models DSCR em mercado de arrendamento (CRE/IPRE) optimizam o pricing nos syndicatos de risco.",
+    "tr_c5_t": "Gestão de Carteiras",
+    "tr_c5_d": "Vigilante das obrigações ESG SFDR sob 8 mil milhões de Euros na área Institucional gerindo limites VaR. Competências combinam automatização Bloomberg nas yields europeias, com proteções sólidas no Risk Officer.",
+    "tr_c6_t": "Especialista CRE",
+    "tr_c6_d": "Análise forense direcionada ao risco imobiliário de rendimento comercial. Expostos €25M suborçados das 'Cap Rates'. Modela as exigências macro-hipotecárias usando os parâmetros literais das exigências Fase 2 do BCE.",
+    "tr_c7_t": "Bloomberg &amp; Quant Analytics",
+    "tr_c7_d": "Automatização analítica de fronteira usando Python e paineis BQuant (BQL). Compreende as estruturas nativas por trás da regulação Europeia (DORA e MiCAR) e o tratamiento de APIs para auditorias en Blockchain.",
+    "ct_lbl": "Contacto",
+    "ct_title": "Vamos Conectar-nos",
+    "ct_sub": "Aberto a oportunidades europeias em Crédito Privado, PE, Investimento Risco, Structured Finance, Imobiliário Comercial e Análise Quantitativa / Bloomberg.",
+    "skill_lbl": "Pilha Tecnológica",
+    "skill_title": "Competências",
+    "skill_b1": "Programação",
+    "skill_b2": "Plataformas Financeiras",
+    "skill_b3": "Ativos Digitais e Cripto",
+    "skill_b4": "Modelação Financeira",
+    "skill_b5": "Domínio Regulatório",
+    "skill_lang": "Idiomas",
+    "lang_pt": "Português",
+    "lang_nat": "Nativo",
+    "lang_en": "Inglês",
+    "lang_c2": "C2 Bilingue",
+    "lang_es": "Espanhol",
+    "lang_b2": "C1 Profissional",
+    "footer_cpy": "© 2026 João Pedro Oliveira · Lisboa, Portugal"
+  },
+  "es": {
+    "nav_home": "Inicio",
+    "nav_about": "Sobre Mí",
+    "nav_exp": "Experiencia",
+    "nav_deals": "Transacciones",
+    "nav_skills": "Habilidades",
+    "nav_edu": "Educación",
+    "nav_roles": "Cargos Objetivo",
+    "nav_contact": "Contacto",
+    "hero_eyebrow": "Riesgo de Crédito · Crédito Privado · Autorización MiCAR · Gestión de Activos",
+    "hero_tagline": "Uniendo <em>inteligencia de riesgo de crédito de nivel supervisor</em><br>\n        con <em>suscripción de crédito privado</em> de alta convicción —<br>\n        expandiendo ahora la frontera regulatoria hacia la<br>\n        <span class=\"micar-em\">autorización de activos digitales bajo MiCAR</span>.",
+    "hero_stat1": "Activos auditados",
+    "hero_stat2": "Impacto en provisiones",
+    "hero_stat3": "Correcciones de RWA",
+    "hero_stat4": "Inspecciones in situ",
+    "hero_btn_exp": "Ver Experiencia",
+    "hero_btn_deals": "Transacciones",
+    "hero_btn_cv": "Descargar CV",
+    "hero_btn_email": "Enviar Email",
+    "about_lbl": "Sobre mí",
+    "about_title": "La Ventaja",
+    "about_p1": "Especialista en riesgo de crédito a nivel de supervisión con experiencia de adscripción en el BCE y un historial comprobado en la inspección in situ de Instituciones Significativas bajo el <strong>Mecanismo Único de Supervisión (MUS)</strong>. <strong>16 inspecciones concluidas</strong> — más de 282 mil millones de euros en activos totales revisados en varias jurisdicciones de la UE.",
+    "about_p2": "Combino una profunda fluidez regulatoria — <strong>NIIF 9, Basilea III/IV, modelado IRB, cuantificación de pérdidas crediticias esperadas (ECL)</strong> — con experiencia práctica de buy-side en Bankinter Gestión de Activos, donde supervisé el riesgo en una <strong>cartera multiactivo de 8 mil millones de euros</strong>.",
+    "about_p3": "Actualmente expandiendo mi frontera regulatoria hacia la <strong>supervisión de activos digitales</strong>, liderando el ciclo de vida de autorización MiCAR para CASPs, VASPs y emisores de EMT europeos en el Banco de Portugal — conectando requisitos prudenciales de <strong>CRD/CRR</strong> con la Regulación de la UE 2023/1114 (MiCAR) y los estándares de resiliencia operativa DORA.",
+    "about_p4": "Objetivo: roles senior en <strong>Crédito Privado, Capital Privado, Gestión de Riesgos, Finanzas Estructuradas, Gestión de Carteras, Bienes Raíces Comerciales (CRE) o Análisis Cuantitativo/Bloomberg</strong> en plataformas de crédito alternativo o gestoras de activos donde la profundidad regulatoria, el conocimiento en MiCAR y el rigor cuantitativo representan una ventaja competitiva.",
+    "abt_c1_t": "Inteligencia Regulatoria",
+    "abt_c1_d": "Inspector adscrito al BCE con credenciales del MUS en Instituciones Significativas en múltiples jurisdicciones de la UE. >€282 mil millones en activos analizados.",
+    "abt_c2_t": "Rigor Cuantitativo",
+    "abt_c2_d": "Python · R · SQL · Bloomberg BQuant. Desde la automatización AQR hasta el back-testing de VaR y calibración de IRB ECL.",
+    "abt_c3_t": "Perspectiva de Buy-Side",
+    "abt_c3_d": "Un año como especialista en riesgo cuantitativo administrando el monitoreo de liquidez y riesgo en una cartera multiactivo de €8 mil millones.",
+    "abt_c4_t": "Supervisión de Activos Digitales",
+    "abt_c4_d": "Arquitecto de la autorización MiCAR para más de 4 CASPs, VASPs y emisores de EMT. Conectando frameworks TradFi (CRD/CRR) con EU Reg. 2023/1114 y DORA.",
+    "ban_title": "Un historial construido sobre análisis riguroso<br>y convicción en insights.",
+    "ban_sub": "Seleccione un área de especialización para ir directamente a la cronología.",
+    "ban_b1": "Activos Digitales (MiCAR)",
+    "ban_b2": "Supervisión del BCE",
+    "ban_b3": "Auditorías de Riesgo de Crédito",
+    "ban_b4": "Gestión de Activos",
+    "exp_lbl": "Carrera",
+    "exp_title": "Experiencia Profesional",
+    "exp_1_c": "Banco de Portugal",
+    "exp_1_b": "MiCAR · Actual",
+    "exp_1_d": "2026 – Presente",
+    "exp_1_r": "Supervisor — Autorización MiCAR (CASP / VASP / EMT) · Reg. UE 2023/1114",
+    "exp_1_bull": "<li><strong>Arquitectura del Ciclo de Autorización:</strong> Arbitraje regulatorio de <strong>>4 solicitantes CASP y VASP</strong> bajo Reg. UE 2023/1114 — evaluación rigurosa de paquetes de documentación, estructuras de gobernanza, resiliencia financiera y viabilidad del modelo de negocio contra los estándares técnicos de EBA/ESMA.</li><li><strong>Transición TradFi y CRD/CRR:</strong> Navegación en la transición estructural de instituciones financieras (Bancos, EMI) hacia la provisión interoperable de criptoactivos MiCAR, mapeando los requisitos prudenciales <strong>CRD/CRR y DORA</strong> en los marcos emergentes de activos digitales.</li><li><strong>Canal de Autorización EMT / ART:</strong> Análisis de adecuación de la reserva de liquidez, cumplimiento de fondos propios e integridad operativa en aplicaciones de emisión de <strong>Electronic Money Token (EMT) y Asset-Referenced Token (ART)</strong>, analizando el riesgo sistémico europeo.</li><li><strong>Coordinación de Supervisión Transfronteriza:</strong> Colaboración con <strong>EBA y ESMA</strong> en estándares técnicos regulatorios MiCAR Nivel 2, actos delegados y convergencia de supervisión en la Unión Europea.</li>",
+    "exp_1_l": "Marcos Clave",
+    "exp_2_c": "Banco Central Europeo (BCE)",
+    "exp_2_b": "Comisión de Servicio BCE",
+    "exp_2_d": "Ene – Jun 2025",
+    "exp_2_r": "Inspector de Riesgo de Crédito — JST · Enfoque Portafolio CRE €32Bn",
+    "exp_2_bull": "<li>Lideró una revisión de la calidad de activos (AQR) ascendente en un <strong>subportafolio CRE de €4Bn</strong> (Oficinas, Logística, Retail); identificó desajustes estructurales entre las definiciones de los límites de Stage 3/NPE y el Manual AQR Fase II del BCE.</li><li>Diseñó un <strong>modelo analítico en Excel para tensionar DSCR y la tasa de capitalización de salida (exit cap rate)</strong>, cuantificando una <strong>deficiencia en las provisiones de €25M</strong> derivada de las presiones no reconocidas.</li><li>Arbitró los resultados directamente con la Alta Dirección de una Institución Significativa de Luxemburgo, logrando consolidar <strong>3 mandatos formales</strong> para recalibrar de inmediato los parámetros PD y LGD.</li><li>Contribuyó a un <strong>modelo de referencia IRB paneuropeo</strong> para comprobar comparabilidad y exigencia en calibraciones bajo las normas de un Joint Supervisory Team (JST).</li>",
+    "exp_3_c": "Banco de Portugal",
+    "exp_3_b": "MUS · 2022–Presente",
+    "exp_3_d": "2022 – Presente",
+    "exp_3_r": "Inspector In Situ — Riesgo de Crédito (MUS) · Equiv. Analista de Crédito Senior",
+    "exp_3_bull": "<li><strong>Optimización RWA y Auditoría IRB/SA:</strong> Auditó importes ponderados por riesgo (RWA) bajo modelo IRB (Normativa CRR II) en una <strong>Institución Significativa de €102Bn</strong>; detectó incorrecciones de segmentación desencadenando una <strong>corrección RWA forzosa de €210M</strong>. Esto se amplió sobre 5 LSIs logrando forzar un <strong>aumento de RWA-SA del 10%</strong>.</li><li><strong>Recalibración de Dificultades Crediticias (ECL) &amp; Provisiones:</strong> Orquestó revisiones exhaustivas bajo NIIF 9, captando infravaloraciones metodológicas en flujos de caja. Reportado <strong>€40M+</strong> en descubiertos PYME/Inmueble con mandato para aplicar un colchón de <strong>€28M</strong> en provisiones directas contra valoraciones erradas.</li><li><strong>Gobernanza y RAF:</strong> Moderó el debate en una entidad de €45Bn sobre deficiencias sistemáticas detectadas en los flujos de crédito. Exigió reestructuraciones sobre el volumen de los préstamos sindicados y CRE vinculados a directrices europeas (EBA GL).</li><li><strong>Ajustando los Modelos Comportamentales (Behavioral Models):</strong> Modeló perfiles revolventes (tarjetas/sobregiros) en un banco universal de <strong>€46Bn</strong> comprobando analíticamente cómo limitar cronológicamente las vidas utilitarias subestima el ratio real de pérdidas; exigió calibración algorítmica exigiendo así un reabasto directo de <strong>€6M en provisiones adyacentes</strong>.</li>",
+    "exp_4_c": "Bankinter Gestión de Activos",
+    "exp_4_d": "2021 – 2022",
+    "exp_4_r": "Analista — Gestión de Activos · Cuantificación de Riesgo",
+    "exp_4_bull": "<li>Valoraciones de modelo y precio justo en el mercado puro vía DCF &amp; F-score sobre <strong>€8Bn en activos macro-diversificados</strong> equilibrando ratios analíticos pre-adquisición tecnológica USA.</li><li>Programó sistemas automáticos Excel vinculados fluidamente a <strong>herramientas BQuant / BQL</strong> escatimando ratios liquidados puros incluyendo LCR/NSFR/HQLA de vigilancia inter-diaria perpetua.</li><li>Formuló pruebas retrospectivas o <strong>back-testing sobre VaR</strong>; sometió historiales corporativos (2008 GFC, 2020 C-19) y predijo una carencia selectiva enfocada en la temporalización (duration).</li><li><strong>Coordinar el Art. 6/8/9 bajo normativa ESG/SFDR</strong> para cinco esquemas directos que albergaban una capacidad global sobre los 8.000 Millones en un entorno regulatorio exigente.</li>",
+    "exp_5_c": "DINÂMIA'CET – ISCTE",
+    "exp_5_d": "2020",
+    "exp_5_r": "Becario de Investigación — Análisis Económico &amp; Machine Learning",
+    "exp_5_bull": "<li>Aplicó redes neuronales predictivas de precisión usando matching scores estadísticos bajo esquemas PYME Portugal 2020, consolidando el motor algorítmico al <strong>97% de exactitud global</strong> en impacto macro.</li>",
+    "exp_6_c": "OLAE — Observatorio Lusófono",
+    "exp_6_d": "2018 – 2020",
+    "exp_6_r": "Estudante Laboral — Consultor Económico",
+    "exp_6_bull": "<li>Construyó proyecciones para <strong>4 operaciones estructuradas de financiamiento multilateral aprobadas</strong> bajo entidades internacionales (Banco Mundial, Banco de Desarrollo).</li>",
+    "deal_lbl": "Transacciones",
+    "deal_title": "Intervenciones Destacables",
+    "deal_sub": "Anonimizadas según el protocolo de confidencialidad y obligaciones MUS/SSM.",
+    "dc1_b": "Riesgo de Crédito · NIIF 9 · ECL",
+    "dc1_t": "Recalibración de Pérdida Esperada (ECL) — Libro PYME/CRE y Falsos Positivos",
+    "dc1_d": "Pilotó una recalibración meticulosa dentro de un programa IFRS 9 dirigido al portafolio Pyme con enfoque sobre subestimaciones crónicas al interior de modelos PD/LGD impulsando nuevas políticas de aprovisionamiento mandatorio.",
+    "dc1_m1": "Saldos corporativos ajustados",
+    "dc1_m2": "Provisiones requeridas",
+    "deal_btn_m": "Metodología",
+    "deal_lbl_a": "Marco Analítico",
+    "dc1_a": "<li>Exploración directa vía triggers Stage 1/2/3 según <strong>criterios SICR</strong> — diagnosticando traslados de PD a lomo de referencias portuarias del sistema bajo métricas directrices NPE.</li><li>Estudio TTC vs PIT analista vía las métricas EBA/RTS obligatorias contra el efecto anti-ciclo en suavizados prolongados que mermaban las rentas de PD.</li><li>Examen riguroso a devaluación Haircut colateral (Normativa CRR 230). Eliminando exposiciones inter-agrupadas sub-dimensionables erróneamente (Art. 390 CRR).</li>",
+    "deal_lbl_o": "Salida",
+    "dc1_o": "<li>Estructuró los pilares hacia 3 reportes formales punitivos por el fallo en los balances en 90 días, demandando recalibraciones de extremo a extremo sin concesiones internas a la banca.</li>",
+    "dc2_b": "BCE · Bienes Raíces (CRE) · JST",
+    "dc2_t": "Forense Exhaustiva en Bienes Raíces CRE — Inspección Dual (JST)",
+    "dc2_d": "Exposición meticulosa conducente durante revisiones del modelo AQR fase II enfocando al déficit provocado bajo cap rates sub-estimados valorados por 25M de provisiones impagadas durante el mandato logístico.",
+    "dc2_m1": "Brecha de provisionamiento",
+    "dc2_m2": "Rango CRE estudiado",
+    "deal_btn_m2": "Metodología",
+    "deal_lbl_a2": "Marco Analítico",
+    "dc2_a": "<li>Búsquedas directas según expedientes <strong>Manual AQR Focal Fase II del BCE</strong> corroborando exposiciones crónicas en la sección Stage 3 tras los estigmas de Art. 47a CRR.</li><li>Sistema modelador propio formulando flujos al nivel <strong>DSCR en Excel avanzado (Tasa de Salida en Stress)</strong> aplicando variabilidades (+75bps, +150bps) con deducciones al flujo inmobiliario hotelero (-35%) y logístico (-20%).</li><li>Mapeo e identificación bajo el mandato de indulgencia y de refinanciación <strong>EBA ITS</strong> reportando el impacto masivo de recategorizar las líneas Stage 2 erróneas.</li>",
+    "deal_lbl_o2": "Salida",
+    "dc2_o": "<li>Evaluación conclusiva exigiendo a niveles administrativos un colateral neto de €25 Millones impagables integrados contra una carta final dictatorial a la jerarquía local de Luxemburgo.</li>",
+    "dc3_b": "Basilea III/IV · Activos RWA · IRB",
+    "dc3_t": "Refinamiento Estanco del Modelo RWA & IRB — Portafolios Europeos de Gran Calibre",
+    "dc3_d": "Operación de precisión y corrección exhaustiva al corazón métrico que mide en €102Bn las sensibilidades colaterales y la estructuración del flujo que culminó a multas severas correctivas valuando 210 Millones suplementarios RWA forzados.",
+    "dc3_m1": "Ajuste masivo impulsado",
+    "dc3_m2": "Espacio geoeconómico evaluado",
+    "deal_btn_m3": "Metodologia",
+    "deal_lbl_a3": "Marco Analitico",
+    "dc3_a": "<li>Verificación en profundidad y mapeo estricto del Modelo Internal (IRB) tras <strong>Métricas EBA RTS</strong>; comprobando falsas categorizaciones o derivas PYME (SME) mal encasilladas bajando al Art. 147 CRR artificialmente mermando el capital retenible corporativo.</li><li>Redimensiones contra modelos colaterales Estándar (SA Review), exigiendo garantías bajo el peso de validación Art. 230 CRR II impactando en multas equivalentes y RWA del orden de los 27 mil Millones frente a LTVs.</li><li>Fluctuación estadística ante métricas inter-año PD, LGD, y EAD con relación pericial cruzada de supervisión macro frente al registro anual europeo.</li>",
+    "deal_lbl_o3": "Salida",
+    "dc3_o": "<li>Corrección de capital RWA de €210M exigiendo en efecto un Plan Rectificador Obligatorio por directivas en plenos 12 meses frente a organismos independientes y auditoría forzosa externa.</li>",
+    "dc4_b": "Cripto-Sector · RegTech · VASP MiCAR",
+    "dc4_t": "Integración MiCAR a la Banca TradFi & Cripto Europea Central",
+    "dc4_d": "Encauzando autorizaciones para operadoras emergentes de blockchain (CASP y VASP) para garantizar integridades operacionales DORA frente a ecosistemas regulatorias emergentes EU MiCAR uniendo lazos a CRR clásico bancario.",
+    "dc4_m1": "Operadores CASP filtrados",
+    "dc4_m2": "Framework EMT revisada",
+    "deal_btn_p": "Proceso",
+    "deal_lbl_p": "Ciclo de Certificacion MiCAR",
+    "dc4_a": "<li><strong>Fase I - Pureza Formularia:</strong> Filtración obligatoria tras el paquete oficial Art. 62/16 CASP y RTS de la ABA EBA documentaria estricta de base.</li><li><strong>Fase II - Flujos de Adquisición B-Model:</strong> Revisión de idoneidad, trazado al custodio seguro sobre el token frente al marco regulatorio MiCAR Titulo II.</li><li><strong>Fase III - Análisis de Jerarquía:</strong> Test Forense hacia aptitudes conflictivas a miembros corporativos contra Art. 68 europeo.</li><li><strong>Fase IV - Blindaje Sistémico (Resilience):</strong> Validación analítica sobre el capital de piso exigido por clase de riesgo (€15-150K) y la solidez contra Reservas Art. 36 requeridas.</li><li><strong>Fase V - Riesgos Digitales DORA:</strong> Evaluaciones sobre resiliencia frente al entorno y terceros para validaciones TICs estructurales (Arts. 5 al 16).</li><li><strong>Fase VI - El Veredicto Regulatorio Oficial:</strong> Denegación formal, condiciones y recomendación plena de operación europea tras directriz autorizada sobre mercado digital a 2 licitantes.</li>",
+    "dc5_b": "Métrica y Comportamiento · NIIF 9 · ECL",
+    "dc5_t": "Recalibración Cuantitativa Comportamental — Universal Bank €46Bn",
+    "dc5_d": "Modelamiento detallado aislando el comportamiento sistemático frente a previsiones algorítmicas de vidas promediadas subestimantes de los revolving credits ocasionando forzas mayores directas en ECL y capital remanente provisional.",
+    "dc5_m1": "Agresión Provisoria Real",
+    "dc5_m2": "Tamaño del ente evaluado",
+    "deal_btn_m4": "Estructura",
+    "deal_lbl_a4": "Marco Analítico Experimental",
+    "dc5_a": "<li>Contraste analítico crudo derivando matrices de modelado frente a historial conductual EBA GL / LOM, para forzar el simulacro de la entidad en comportamientos revolving del endeudado crediticio.</li><li>Descubrimiento forense que el modelo estandar de 12 meses subyacía un ocultamiento cronológico en <strong>Promedio de vida prolongado - AL</strong> por encima de los +20 meses encareciendo gravemente la tasa interna de recuperación y de valuación ECL Etapa II transitoria.</li><li>Regeneración obligatoria del índice histórico de re-pagos para conformar proyecciones Machine Learning de modelado horizonte-comportamental analítico, en función del historial propio por sub-sector prestatario analizando tendencias crudas y ratios volumétricos subyacentes macro.</li>",
+    "deal_lbl_o4": "Salida",
+    "dc5_o": "<li>Levantamiento obligatorio de una cifra récord (+ 6 Millones € ECL). Sustitución al 100% mandataria hacia el nuevo software predictivo forjado para la inspección reguladora (ICAAP) del ciclo en transcurso y subsiguiente en marcha analizada rigurosa anual para el banco intervenido sin excepciones al alza o baja sistémica predispuesta internamente al control pericial en su caso de riesgo analizado por BCE.</li>",
+    "dc6_b": "Métrica Cuantitativa BQL · SFDR",
+    "dc6_t": "Rastreador Analítico VaR Integrado & Suite Liquidez Activa Bancaria",
+    "dc6_d": "Arquitectura automatizada pionera unificadora sobre la terminal de liquidez bancaria multi-asset €8 Mil Millones uniendo parámetros VaR y testeos ante colapsos sistemáticos, logrando anticipar choques mundiales (ECB 2022).",
+    "dc6_m1": "AUM Modelado en Stress",
+    "dc6_m2": "Modelos históricos ejecutados",
+    "deal_btn_m5": "Despliegue",
+    "deal_lbl_a5": "Visión Detallada Operacional",
+    "dc6_a": "<li><strong>Métricas Extremas (VaR Engine):</strong> Analizador en profundidad y simulación sistemática (margen error 99%, horizonte 10D) sobre pilares robustos Basilea. Validaciones contundentes frente al tráfico pericial y Kupiec POF / Christoffersen independiente estadístico validado oficial riguroso e incuestionable metodológicamente puro y directo.</li><li><strong>Suite Total en Liquidez Integral BQuant:</strong> Desarrollo Python en sincronía con plataformas Bloomberg analíticas rastreando métricas vitales NSFR e HQLA categorizada y re-analizada sistemáticamente y en tiempo fluido al 100%.</li><li><strong>Choque y Destrucción Simulada Escandalosa (GFC, 2020 C19, BCE Shock):</strong> Aplicación estricta y directa simulada revelando bajo la estructura analizada debilidades sutiles o severas infraexposición ante volatilidades de tiempo prolongadas y subidas macro de tasas sistémicas en periodos volátiles para carteras completas.</li>",
+    "deal_lbl_o5": "Salida",
+    "dc6_o": "<li>Reprogramación del sesgo posicional. Automatizaciones BQuant reduciendo tiempo vital burocrático (20% aligeramiento manual crudo directo) acoplando mandatos obligatorios internacionales ESG sobre las metas Articulo 6/8/9 vinculantes sobre normativas reguladoras.</li>",
+    "fb_l1": "Inspecciones In Situ",
+    "fb_l2": "Activos Auditados",
+    "fb_l3": "Provisionamiento Rectificado",
+    "fb_l4": "Ajuste de Riesgo Corporativo (RWA)",
+    "fb_l5": "Fronteras MiCAR Cripto Certificadas",
+    "edu_lbl": "Formación Académica",
+    "edu_title": "Historial Analítico y Teórico",
+    "tr_lbl": "Áreas Profesionales Objetivo",
+    "tr_title": "Horizonte Especializado Profesional",
+    "tr_c1_t": "Financiamiento Crediticio Privado",
+    "tr_c1_d": "Asesoramiento analítico puro tras inspecciones extremas. Estructuradores forenses y LGD directos integrándose al mercado regulando PD en proyecciones LBO hacia crédito colateral sobre bases institucionales fuertes para fondos directos. Todo lo referido al campo analítico privado o directo del mercado europeo de activos o rendimientos seguros.",
+    "tr_c2_t": "Equidad de Capital Extranjero",
+    "tr_c2_d": "Fusiones y due diligence al borde de ratios en resiliencias analizadas forensemente contra exigencias de normatividad pesada sobre evaluaciones estructurales contables bancarias a modelos IRB o reguladores y apalancamientos macros con miras lógicas robustas sin parangón en el mercado de la diligencia corporativa o compras agresivas y compras garantizadas apalancadas lógicamente calculadas con un grado regulador elevado e instintivo forense puro en análisis. Estructuras del Private Equity con análisis sólido de balances cruzados del estado pericial y capital cruzado frente a bancos.",
+    "tr_c3_t": "Análisis Puro de Riesgo Empresarial",
+    "tr_c3_d": "Inspección constante y permanente validación metodológica y paramétrica forense a los regímenes ECL y modelos de riesgos IFRS 9 implementado dentro de grandes matrices universales fortalecidos con la directiva técnica ECB. Ideal también y absolutamente centrado dentro de las auditorías institucionales corporativas exigiendo la rectificación de todo modelo contra normatividad rigurosa analítica y con parámetros institucionales exigibles de inmediato en la corrección o salvaguarda estricta de las normas.",
+    "tr_c4_t": "Vehículos de Financiamiento Estructurados Financieros",
+    "tr_c4_d": "Construcciones CLO/ABS con flujos integrados forenses o estudios y métricas de mercado que evalúan activos complejos contra métricas de DSCR que garantizan el análisis exacto y profundo y con alfa de rentabilidad directa a las mesas corporativas e institucionales del nivel directivo contra una norma pura del estamento supervisor frente a los bancos europeos bajo estrictos parámetros y lógicas financieras estructuradas (Structured Finance).",
+    "tr_c5_t": "Supervisión Cuantitativa Estricta",
+    "tr_c5_d": "Modelamiento temporal frente a la fluidez, resguardando límites reguladores integrando SFDR (Sostenibilidad Macro) y analíticas LCR bajo controles VaR dentro del Portafolio total de inversión y sobre el fondo a gran escala para inversiones diversificadas en el nivel del fondo del portfolio europeo, garantizando una administración sólida exenta de volatilidad errada del regulador. Riesgo general consolidado y métrica purificada para Asset Managers robustos a escala corporativa internacional sin debilidades en su balance macroeconómico sistemático corporativo total.",
+    "tr_c6_t": "Métricas Inmobiliarias Comerciales Especialistas (CRE)",
+    "tr_c6_d": "Simulacros a nivel estricto sobre balances macro en CRE que validan cap rates u o analizan exhaustivamente variables DSCR usando Phase 2 y bajo reglamentos forenses NPE en activos estresables puros del modelo bancario (Inmuebles comerciales logísticos y residenciales hoteleros para firmas reguladas en toda la rama del Real Estate en gran escala corporativa y análisis de crédito duro no diluido o aparente sin pruebas en su tasa garantizada y métricas de AQR).",
+    "tr_c7_t": "Procesamiento Bloomberg Big Data / BQuant",
+    "tr_c7_d": "El dominio Python enfocado al estamento normativo automatizando la investigación reguladora analizada veloz (BQL). Cruce MiCAR a regulaciones que se enlazan en Fintech, operativas programables algorítmicas hacia un análisis analítico predictivo para las mayores entidades sistemáticas financieras o fondos cuantitativos puros de alto calibre a través y mediante una robustez tecnológica y del Quant Analytics bajo lenguajes SQL puros y librerías modernas de datos.",
+    "ct_lbl": "Contacto",
+    "ct_title": "Conectemos",
+    "ct_sub": "Atendiendo posibilidades concretas corporativas sobre el Crédito Estructurado, el Riesgo Macro Forense, Inversiones Cuantitativas y posiciones sólidas de Data Bloomberg.",
+    "skill_lbl": "Stack Tecnológico",
+    "skill_title": "Capacidades",
+    "skill_b1": "Programación",
+    "skill_b2": "Plataformas Financieras",
+    "skill_b3": "Activos Digitales y Cripto",
+    "skill_b4": "Modelado Financiero",
+    "skill_b5": "Dominio Regulatorio",
+    "skill_lang": "Idiomas",
+    "lang_pt": "Portugués",
+    "lang_nat": "Nativo",
+    "lang_en": "Inglés",
+    "lang_c2": "C2 Bilingüe",
+    "lang_es": "Español",
+    "lang_b2": "C1 Profesional",
+    "footer_cpy": "© 2026 João Pedro Oliveira · Lisboa, Portugal"
+  }
+};
+
+    function setLanguage(lang) {
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if (translations[lang] && translations[lang][key]) {
+          el.innerHTML = translations[lang][key];
+        }
+      });
+      // Update active button state
+      document.querySelectorAll('.lang-btn').forEach(btn => {
+        btn.classList.remove('active');
+        if (btn.textContent.trim().toLowerCase() === lang) {
+          btn.classList.add('active');
+        }
+      });
+      localStorage.setItem('preferredLang', lang);
+    }
+
+    // Auto-detect URL parameter (e.g. ?lang=pt) or fallback
+    const urlParams = new URLSearchParams(window.location.search);
+    const urlLang = urlParams.get('lang');
+    const savedLang = localStorage.getItem('preferredLang');
+    if (urlLang && translations[urlLang]) {
+      setLanguage(urlLang);
+    } else if (savedLang && translations[savedLang]) {
+      setLanguage(savedLang);
+    }
 
   </script>
 </body>
